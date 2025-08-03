@@ -1,0 +1,94 @@
+.sound-bar{
+    background-color: #3F5E53;
+    padding-right: 15px;
+    padding-left: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: solid #DBE5DF;
+    border-radius: 20px;
+    transition: transform 0.15s ease-in-out;
+    width: 200px;
+
+  &:hover {
+    transform: scale(1.05); // powiększa o 10%
+    background-color: #556d62;
+  }
+}
+
+.sound-button{
+    background-color: #3F5E53;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.range{
+    color: white;
+}
+
+
+
+input[type="range"] {
+  -webkit-appearance: none; /* usuwa domyślny styl WebKit */
+  width: 100%;
+  height: 6px;
+  background: white; /* kolor tła track */
+  border-radius: 3px;
+  outline: none;
+}
+
+/* Track (pasek) dla Chrome, Safari, Edge */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: white; /* np. niebieski */
+  height: 6px;
+  border-radius: 3px;
+}
+
+/* Thumb (supełek) dla Chrome, Safari, Edge */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #DBE5DF; /* ciemniejszy niebieski */
+  cursor: pointer;
+  border-radius: 50%;
+  margin-top: -6px; /* centrowanie na track */
+  box-shadow: 0 0 5px rgba(0,0,0,0.7);
+
+  &:hover {
+    transform: scale(1.05); // powiększa o 10%
+    background-color: #556d62;
+  }
+}
+
+/* Firefox track */
+input[type="range"]::-moz-range-track {
+  background: white;
+  height: 6px;
+  border-radius: 3px;
+}
+
+/* Firefox thumb */
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #DBE5DF;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0,0,0,0.7);
+  border: none;
+
+  &:hover {
+    transform: scale(1.05); // powiększa o 10%
+    background-color: #556d62;
+  }
+}

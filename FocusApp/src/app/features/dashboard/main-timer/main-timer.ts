@@ -11,7 +11,7 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class MainTimer {
   now = new Date();
-  is24Hour = true;
+  is24Hour = false;
   intervalId: any;
 
   constructor(private cd: ChangeDetectorRef) {

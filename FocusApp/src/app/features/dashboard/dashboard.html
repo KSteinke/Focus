@@ -13,14 +13,20 @@
 
 <!-- Dolny pasek z przyciskami i tekstem -->
 <div class="row pb-4 h-25">
-  <div class="col-6 d-flex align-items-end justify-content-start ps-4">
+  <div class="col-md-6 d-flex align-items-end justify-content-start ps-4">
   <div class="d-flex flex-column text text-white">
     <div>Made with <span class="heart">❤︎</span></div>
     <div class="sign">by Kacper Steinke</div>
   </div>
 </div>
-  <div class="col-6 d-flex align-items-end justify-content-end pe-4">
-    <button class="btn btn-primary me-2">Przycisk 1</button>
-    <button class="btn btn-secondary">Przycisk 2</button>
+  <div class="col-md-6 col-12-md d-flex align-items-end justify-content-end pe-4">
+    <div class="row">
+      <div class="col">
+        <app-sound-button (volumeChange)="handleVolumeChange($event)"></app-sound-button>
+      </div>
+      <div class="col">
+        <app-options-button></app-options-button>
+      </div>
+    </div>
   </div>
 </div>
