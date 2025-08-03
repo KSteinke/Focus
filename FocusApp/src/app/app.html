@@ -1,9 +1,11 @@
+<!--
 <div [ngStyle]="{'background-image': 'url(' + backgroundUrl + ')'}" class="background-container">
-  Dashboard z dynamicznym tłem
   <app-dashboard></app-dashboard>
 </div>
+-->
 
-
-
+<div [ngStyle]="{'background-image': 'url(' + backgroundUrl + ')'}" class="background-container d-flex flex-column justify-content-between full-height min-vh-100">
+  <app-dashboard></app-dashboard>
+</div>
 
 

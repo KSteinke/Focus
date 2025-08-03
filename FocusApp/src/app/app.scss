@@ -1,7 +1,8 @@
 .background-container {
-  min-height: 100vh;
-  width: 100vw;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: 100vh;                  /* dokładnie wysokość widocznego ekranu */
+  width: 100vw; 
+  background-size: cover;        /* dopasuj tło, przytnij nadmiar */
+  background-position: center;   /* wyśrodkuj obraz */
+  background-repeat: no-repeat;  /* nie powtarzaj */
+  overflow: hidden;              /* zapobiega scrollowi */
 }
