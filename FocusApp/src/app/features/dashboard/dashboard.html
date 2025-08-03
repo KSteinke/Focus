@@ -1,33 +1,25 @@
-<!--
-<div class="container">
-  <div class="row">
-    <div class="col-6 mx-auto text-center">
-      Środkowy blok (6 kolumn)
-    </div>
-  </div>
-</div>
--->
-<div class="row pt-4">
-  <div class="col-12 d-flex justify-content-center">
-    <div class="w-50 text-center">
-      <h4>Górny środkowy element</h4>
-    </div>
+<div class="row pt-4 h-25 justify-content-center">
+  <div class="col-12 col-sm-12 col-md-6 text-center">
+      <app-quote></app-quote>
   </div>
 </div>
 
 <!-- Centralny element wyśrodkowany w pionie i poziomie -->
-<div class="row flex-grow-1 d-flex align-items-center justify-content-center">
+<div class="row flex-grow-1 d-flex align-items-center justify-content-center h-50">
   <div class="col-12 text-center">
-    <h1>Centralny element</h1>
+    <app-main-timer></app-main-timer>
   </div>
 </div>
 
 <!-- Dolny pasek z przyciskami i tekstem -->
-<div class="row pb-4">
-  <div class="col-6 d-flex align-items-center justify-content-start ps-4">
-    <span>Krótki tekst</span>
+<div class="row pb-4 h-25">
+  <div class="col-6 d-flex align-items-end justify-content-start ps-4">
+  <div class="d-flex flex-column text text-white">
+    <div>Made with <span class="heart">❤︎</span></div>
+    <div class="sign">by Kacper Steinke</div>
   </div>
-  <div class="col-6 d-flex align-items-center justify-content-end pe-4">
+</div>
+  <div class="col-6 d-flex align-items-end justify-content-end pe-4">
     <button class="btn btn-primary me-2">Przycisk 1</button>
     <button class="btn btn-secondary">Przycisk 2</button>
   </div>
