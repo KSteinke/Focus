@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EventEmitter, Output } from '@angular/core';
+import { SoundService } from '../../../core/services/sounds_service/sound-service';
 
 @Component({
   selector: 'app-sound-button',
@@ -10,6 +11,11 @@ import { EventEmitter, Output } from '@angular/core';
   styleUrl: './sound-button.scss'
 })
 export class SoundButton {
+
+  constructor(private soudService: SoundService){
+
+  }
+
   isMuted = true;
 
   private _temp_volume = 50;
@@ -24,6 +30,7 @@ export class SoundButton {
 
     // jeśli suwak ustawiony na 0 → mute
     this.isMuted = value === 0;
+    this.soudService.setVolume(value);
   }
 
   toggleMute() {
@@ -32,12 +39,10 @@ export class SoundButton {
     } else {
       this.volume = 0;
     }
-    this.volumeChange.emit(this.volume);
   }
 
-  @Output() volumeChange = new EventEmitter<number>();
+
   onVolumeChange() {
     this._temp_volume = this.volume;
-    this.volumeChange.emit(this.volume);  // wysyłamy wartość do rodzica
   }
 }
