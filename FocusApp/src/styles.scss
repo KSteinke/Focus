@@ -8,5 +8,37 @@ html, body {
 }
 
 
+.sqare-top-button{
+    background-color: #3F5E53;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: solid #DBE5DF;
+    border-radius: 20px;
+    transition: transform 0.15s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05); // powiększa o 10%
+    background-color: #556d62;
+  }
+}
+
+
+.sqare-inside-button{
+    background-color: #3F5E53;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

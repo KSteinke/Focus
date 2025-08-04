@@ -11,5 +11,6 @@ import { NgStyle } from '@angular/common';
 })
 export class App {
   protected readonly title = signal('FocusApp');
-  backgroundUrl: string = 'assets/Tree.png';
+  backgroundUrl: string = 'assets/backgrounds/static/Cyberpunk_City.png';
+
 }
