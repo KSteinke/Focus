@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-options-button',
@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class OptionsButton {
 
-  
+   @Output() clickEvent = new EventEmitter(true);
 
+    async optionsButtonClicked() {
+      this.clickEvent.emit();
+    }
 }

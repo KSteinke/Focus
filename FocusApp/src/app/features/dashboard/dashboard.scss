@@ -37,3 +37,15 @@
     font-size: 20px;  // średni ekran (sm)
     }  
 }
+
+.options-dashboard-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95); /* lub dowolne inne tło */
+  z-index: 1000;
+  overflow: auto; /* jeśli potrzebujesz scrolla */
+  padding: 20px;
+}
