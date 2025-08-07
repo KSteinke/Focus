@@ -32,7 +32,12 @@ export class Dashboard {
   async optionsButtonClicked(event: MouseEvent)
   {
     this.IsOptionsDashboardOpen = this.IsOptionsDashboardOpen ? false : true;
-    console.log("Dashboard received event", this.IsOptionsDashboardOpen)
+  }
+
+  async optionsCloseButtonClicked(event: MouseEvent)
+  {
+    this.IsOptionsDashboardOpen = false;
+    console.log("Dashboard")
   }
 
 }
