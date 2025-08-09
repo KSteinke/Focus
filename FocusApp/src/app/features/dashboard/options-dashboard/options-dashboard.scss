@@ -1,3 +1,19 @@
 .options-dashboard-menu{
     border-right: solid 3px white;
 }
+
+.options-dashboard-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.98); /* lub dowolne inne tło */
+  z-index: 1000;
+  overflow: hidden; /* jeśli potrzebujesz scrolla */
+    @media (min-width: 576px) {
+      right: 0;
+      width: 50vw;
+      left: auto;
+    }  
+}
