@@ -7,6 +7,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class ConfigService {
   public quoteServiceConfig!: Config;
+  public backgroundServiceConfig!: Config;
 
   constructor(private http: HttpClient) {}
 
@@ -14,6 +15,8 @@ export class ConfigService {
   try {
     const quoteServiceConfig = await firstValueFrom(this.http.get('assets/config/quote_config/config.json'));
     this.quoteServiceConfig = new Config(quoteServiceConfig);
+
+    this.backgroundServiceConfig = new Config(await firstValueFrom(this.http.get('assets/config/background_config/config.json')))
   } catch (error) {
     this.quoteServiceConfig = new Config({});
   }

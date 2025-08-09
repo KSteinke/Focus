@@ -1,0 +1,19 @@
+{
+    "backgrounds":{
+        "static": [
+            {
+                "name": "Cyber City",
+                "path": "assets/backgrounds/static/Cyberpunk_City.png"
+            },
+            {
+                "name": "Japanese City",
+                "path": "assets/backgrounds/static/Japanese_Street.png"
+            },
+            {
+                "name": "Autumn Trees",
+                "path": "assets/backgrounds/static/Tree.png"
+            }
+        ],
+        "animated": []
+    }
+}
