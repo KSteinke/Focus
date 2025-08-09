@@ -1,5 +1,12 @@
-.background-preview-element
-{
+.background-preview-element {
     border-radius: 20px;
-    background-size: contain;
+    background-size: 100% 100%;     /* albo 'cover' */
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: transform 0.15s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
 }

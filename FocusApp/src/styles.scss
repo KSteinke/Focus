@@ -73,7 +73,10 @@ html, body {
   scrollbar-color: rgba(255,255,255,0.3) rgba(255,255,255,0.05);
 }
 
-
+.ratio img {
+  object-fit: cover;
+  object-position: center;
+}
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
