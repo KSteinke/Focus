@@ -81,6 +81,15 @@
                     "text": "Codziennie jesteś albo krok bliżej, albo krok dalej od celu.",
                     "author": "autor nieznany"
                 }
-            ]
+            ],
+        "backgrounds":{
+            "static": [
+                {
+                    "name": "Cybercity",
+                    "path": "assets/backgrounds/static/Cyberpunk_City.png"
+                }
+            ],
+            "animated": []
+        }
 
 }

@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { OptionMenuButton } from '../../../common/buttons/option-menu-button/option-menu-button';
 import { CommonModule } from '@angular/common';
+import { BackgroundSelector } from './background-selector/background-selector';
 
 
 @Component({
   selector: 'app-options-dashboard',
-  imports: [OptionMenuButton, CommonModule],
+  imports: [OptionMenuButton, CommonModule, BackgroundSelector],
   templateUrl: './options-dashboard.html',
   styleUrl: './options-dashboard.scss'
 })

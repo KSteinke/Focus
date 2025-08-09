@@ -5,6 +5,7 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: 'Inter', sans-serif;
+  
 }
 
 
@@ -19,7 +20,7 @@ html, body {
     transition: transform 0.15s ease-in-out;
 
   &:hover {
-    transform: scale(1.05); // powiększa o 10%
+    transform: scale(1.1); // powiększa o 10%
     background-color: #556d62;
   }
 }
@@ -39,6 +40,40 @@ html, body {
     background: transparent;
     cursor: pointer;
 }
+
+.text-justify {
+    text-align: justify;
+}
+
+
+//Scrollable
+/* Chrome, Edge, Safari */
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Firefox */
+.scrollable {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.3) rgba(255,255,255,0.05);
+}
+
+
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
