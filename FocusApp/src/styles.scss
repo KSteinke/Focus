@@ -18,6 +18,7 @@ html, body {
     border: solid #DBE5DF;
     border-radius: 20px;
     transition: transform 0.15s ease-in-out;
+    max-width: 50px;
 
   &:hover {
     transform: scale(1.1); // powiększa o 10%
