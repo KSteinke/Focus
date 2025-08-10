@@ -4,6 +4,8 @@
     background-repeat: no-repeat;
     background-position: center center;
     transition: transform 0.15s ease-in-out;
+    
+    border: solid white 3px;
 
     &:hover {
         transform: scale(1.1);
