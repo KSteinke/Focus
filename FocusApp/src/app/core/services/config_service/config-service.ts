@@ -8,6 +8,7 @@ import { firstValueFrom } from 'rxjs';
 export class ConfigService {
   public quoteServiceConfig!: Config;
   public backgroundServiceConfig!: Config;
+  public soundServiceConfig!: Config;
 
   constructor(private http: HttpClient) {}
 
@@ -17,6 +18,8 @@ export class ConfigService {
     this.quoteServiceConfig = new Config(quoteServiceConfig);
 
     this.backgroundServiceConfig = new Config(await firstValueFrom(this.http.get('assets/config/background_config/config.json')))
+    this.soundServiceConfig = new Config(await firstValueFrom(this.http.get('assets/config/sound_config/config.json')))
+
   } catch (error) {
     this.quoteServiceConfig = new Config({});
   }
