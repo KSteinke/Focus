@@ -44,7 +44,8 @@ export class SoundService {
             Id: soundConfig.Id,
             Name: soundConfig.Name,
             Audio: audio,
-            Volume: 0.5
+            Volume: 0.5,
+            IconPath: soundConfig.IconPath
           }
         )
       });
@@ -83,7 +84,8 @@ export interface SoundConfig
 {
    Id: string,
    Name: string,
-   Path: string
+   Path: string,
+   IconPath: string
 }
 
 export interface Sound
@@ -92,4 +94,5 @@ export interface Sound
   Name: String,
   Audio: HTMLAudioElement
   Volume: number
+  IconPath: string
 }

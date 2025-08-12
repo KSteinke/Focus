@@ -13,6 +13,6 @@ export class SoundElement {
 
   ngOnInit()
   {
-    this.soundService.PlaySound(this.Sound);
+    //this.soundService.PlaySound(this.Sound);
   }
 }
