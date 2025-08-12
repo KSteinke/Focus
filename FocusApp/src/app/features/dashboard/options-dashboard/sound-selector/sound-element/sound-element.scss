@@ -1,7 +1,21 @@
 .sound-element{
+    transition: transform 0.3s ease, color 0.3s ease;
     &:hover{
         cursor: pointer;
     }
+}
+
+.sound-element.playing {
+  transform: scale(1.2);
+  color: #ff4081; /* zmiana koloru całego SVG i tekstu */
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Delikatne falowanie */
+@keyframes pulse {
+  0% { transform: scale(1.2); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1.2); }
 }
 
 

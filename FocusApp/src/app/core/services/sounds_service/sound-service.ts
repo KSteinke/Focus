@@ -45,18 +45,28 @@ export class SoundService {
             Name: soundConfig.Name,
             Audio: audio,
             Volume: 0.5,
-            IconPath: soundConfig.IconPath
+            IconPath: soundConfig.IconPath,
+            IsPlaying: false
           }
         )
       });
     }
 
-    public PlaySound(sound: Sound)
+    public TogleSound(sound: Sound)
     {
-      sound.Audio.play();
-      if(this.globalVolume !== 0)
+      if(sound.IsPlaying)
       {
-        this.globalMute.next(false);
+        sound.Audio.pause();
+        sound.IsPlaying = false;
+      }
+      else
+      {
+        sound.Audio.play();
+        sound.IsPlaying = true;
+        if(this.globalVolume !== 0)
+        {
+          this.globalMute.next(false);
+        }
       }
     }
 
@@ -92,7 +102,8 @@ export interface Sound
 {
   Id: string,
   Name: String,
-  Audio: HTMLAudioElement
-  Volume: number
-  IconPath: string
+  Audio: HTMLAudioElement,
+  Volume: number,
+  IconPath: string,
+  IsPlaying: boolean
 }
