@@ -22,13 +22,7 @@ export class BackgroundSelector {
 
   ngOnInit()
   {
-
-    console.log('Backgrouns-Selector Init');
     this.StaticBackgrounds = this.backgroundService.getStaticBackgrounds();
-
-    this.StaticBackgrounds.forEach(bg => {
-      console.log(`Background: ${bg.name}, path: ${bg.path}`);
-    });
   }
 
 }

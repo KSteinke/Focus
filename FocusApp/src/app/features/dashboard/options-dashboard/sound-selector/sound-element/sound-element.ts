@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Sound } from '../sound-selector';
-
+import { Sound, SoundService } from '../../../../../core/services/sounds_service/sound-service';
 @Component({
   selector: 'app-sound-element',
   imports: [],
@@ -9,4 +8,11 @@ import { Sound } from '../sound-selector';
 })
 export class SoundElement {
   @Input() Sound!: Sound;
+  constructor(private soundService: SoundService) {}
+
+
+  ngOnInit()
+  {
+    this.soundService.PlaySound(this.Sound);
+  }
 }

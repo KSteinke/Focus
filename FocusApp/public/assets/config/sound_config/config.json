@@ -1,14 +1,14 @@
 {
     "sounds": [
         {
-            "id": "whitenoise",
-            "name": "White noise",
-            "path": "assets/sounds/50-White-Noise-60min.mp3"
+            "Id": "whitenoise",
+            "Name": "White noise",
+            "Path": "assets/sounds/50-White-Noise-60min.mp3"
         },
         {
-            "id": "cafe",
-            "name": "Coffee shop sounds",
-            "path": "assets/sounds/cafe-sounds.mp3"
+            "Id": "cafe",
+            "Name": "Coffee shop sounds",
+            "Path": "assets/sounds/cafe-sounds.mp3"
         }
     ]
 }

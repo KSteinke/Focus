@@ -16,6 +16,15 @@ export class SoundButton {
 
   }
 
+  ngOnInit()
+  {
+      this.soudService.GlobalMute.subscribe(data =>
+      {
+        this.isMuted = data;
+      }
+    );
+  }
+
   isMuted = true;
 
   private _temp_volume = 50;
@@ -30,14 +39,20 @@ export class SoundButton {
 
     // jeśli suwak ustawiony na 0 → mute
     this.isMuted = value === 0;
-    this.soudService.setVolume(value);
+    if(this.isMuted === true)
+    {
+      this.soudService.MuteAllSounds();
+    }
+    this.soudService.GlobalVolume = value;
   }
 
   toggleMute() {
     if (this.isMuted) {
       this.volume = this._temp_volume; // odcisz i ustaw np. domyślną głośność
+      this.soudService.UnMuteAllSounds();
     } else {
       this.volume = 0;
+      this.soudService.MuteAllSounds();
     }
   }
 

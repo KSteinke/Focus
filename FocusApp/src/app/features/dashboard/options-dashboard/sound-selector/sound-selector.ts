@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ConfigService } from '../../../../core/services/config_service/config-service';
 import { SoundElement } from './sound-element/sound-element';
+import { SoundService } from '../../../../core/services/sounds_service/sound-service';
+import { Sound } from '../../../../core/services/sounds_service/sound-service';
 
 @Component({
   standalone: true,
@@ -12,7 +13,7 @@ import { SoundElement } from './sound-element/sound-element';
 })
 export class SoundSelector {
 
-  constructor(private configService: ConfigService)
+  constructor(private soundService: SoundService)
   {
     
   }
@@ -21,14 +22,9 @@ export class SoundSelector {
 
   ngOnInit()
   {
-    this.Sounds = this.configService.soundServiceConfig.get("sounds");
+    this.Sounds = this.soundService.Sounds;
   }
 
 }
 
-export interface Sound
-{
-   id: string,
-   name: string,
-   path: string
-}
+

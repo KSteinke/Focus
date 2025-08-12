@@ -1,30 +1,95 @@
 import { Injectable } from '@angular/core';
+import { ConfigService } from '../config_service/config-service';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SoundService {
-    audio = new Audio('assets/sounds/50-White-Noise-60min.mp3');
-    plays = false;
-    constructor()
+    private sounds: Sound[] = [];
+    public get Sounds(): Sound[]
     {
-      this.playSound();
+      return this.sounds;
+    }
+    private globalVolume: number = 0.5;
+
+    public set GlobalVolume(value: number)
+    {
+      this.globalVolume = value / 100;
+      this.sounds.forEach(sound => {
+        sound.Audio.volume = sound.Volume * this.globalVolume;
+      });
     }
 
-    playSound() {
-      this.audio.volume = 0;  // ustaw głośność przed odtworzeniem
-      this.audio.currentTime = 0;
-      this.audio.loop = true;
-      this.audio.play();
+    public get GlobalVolume() : number
+    {
+      return this.globalVolume;
     }
 
-    setVolume(volume: number)
+    private globalMute = new BehaviorSubject<boolean>(true);
+    public GlobalMute = this.globalMute.asObservable();
+    
+    constructor(private configService: ConfigService)
     {
-      if(this.plays == false)
+      let soundsConfig: SoundConfig[] = this.configService.soundServiceConfig.get("sounds");
+      soundsConfig.forEach(soundConfig => {
+
+        let audio: HTMLAudioElement = new Audio(soundConfig.Path);
+        audio.volume = 0.5 * this.globalVolume;
+        audio.pause();
+
+        this.sounds.push(
+          {
+            Id: soundConfig.Id,
+            Name: soundConfig.Name,
+            Audio: audio,
+            Volume: 0.5
+          }
+        )
+      });
+    }
+
+    public PlaySound(sound: Sound)
+    {
+      sound.Audio.play();
+      if(this.globalVolume !== 0)
       {
-        this.playSound();
-        this.plays = true;
+        this.globalMute.next(false);
       }
-      this.audio.volume = volume / 100;
     }
+
+    public MuteAllSounds()
+    {
+      this.sounds.forEach(sound => {
+        sound.Audio.volume = 0;
+      });
+
+      this.globalMute.next(true);
+    }
+
+    public UnMuteAllSounds()
+    {
+      this.sounds.forEach(sound => 
+      {
+        sound.Audio.volume = sound.Volume * this.globalVolume;
+      }
+      );
+
+      this.globalMute.next(false);
+    }
+}
+export interface SoundConfig
+{
+   Id: string,
+   Name: string,
+   Path: string
+}
+
+export interface Sound
+{
+  Id: string,
+  Name: String,
+  Audio: HTMLAudioElement
+  Volume: number
 }
