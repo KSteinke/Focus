@@ -1,7 +1,13 @@
-<div class="d-flex justify-content-center align-items-center">
+<div class="justify-content-center align-items-center text-center sound-element">
     <div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="48" height="48" fill="currentColor">
             <path [attr.d]="Sound.IconPath"></path>
         </svg>
+        <div class="text-white">
+            {{Sound.Name}}
+        </div>
+    </div>
+    <div>
+        <input type="range" min="0" max="100" class="form-range w-75 range">
     </div>
 </div>
