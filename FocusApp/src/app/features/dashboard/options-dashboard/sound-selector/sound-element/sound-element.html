@@ -8,6 +8,6 @@
         </div>
     </div>
     <div class="pt-2" *ngIf="Sound.IsPlaying">
-        <input type="range" min="0" max="100" class="form-range w-75 range">
+        <input type="range" min="0" max="100" [(ngModel)]="volume" (input)="onVolumeChange()" class="form-range w-75 range">
     </div>
 </div>

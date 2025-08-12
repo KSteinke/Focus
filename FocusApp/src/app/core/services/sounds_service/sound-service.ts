@@ -36,7 +36,7 @@ export class SoundService {
       soundsConfig.forEach(soundConfig => {
 
         let audio: HTMLAudioElement = new Audio(soundConfig.Path);
-        audio.volume = 0.5 * this.globalVolume;
+        audio.volume = 0.5;
         audio.pause();
 
         this.sounds.push(
@@ -44,7 +44,7 @@ export class SoundService {
             Id: soundConfig.Id,
             Name: soundConfig.Name,
             Audio: audio,
-            Volume: 0.5,
+            Volume: audio.volume,
             IconPath: soundConfig.IconPath,
             IsPlaying: false
           }
@@ -88,6 +88,11 @@ export class SoundService {
       );
 
       this.globalMute.next(false);
+    }
+
+    public SetSoundVolume(sound: Sound, volume: number)
+    {
+      sound.Audio.volume = this.globalVolume * (volume / 100);
     }
 }
 export interface SoundConfig

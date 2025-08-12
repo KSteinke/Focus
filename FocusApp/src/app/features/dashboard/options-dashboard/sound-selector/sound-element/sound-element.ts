@@ -1,15 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { Sound, SoundService } from '../../../../../core/services/sounds_service/sound-service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-sound-element',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './sound-element.html',
   styleUrl: './sound-element.scss'
 })
 export class SoundElement {
   @Input() Sound!: Sound;
   constructor(private soundService: SoundService) {}
+
+  public volume! : number;
 
   togleSound()
   {
@@ -18,6 +21,12 @@ export class SoundElement {
 
   ngOnInit()
   {
+    this.volume = this.Sound.Audio.volume * 100;
     //this.soundService.PlaySound(this.Sound);
+  }
+
+  onVolumeChange()
+  {
+    this.soundService.SetSoundVolume(this.Sound, this.volume);
   }
 }
