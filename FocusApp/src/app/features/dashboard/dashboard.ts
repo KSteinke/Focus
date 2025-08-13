@@ -8,16 +8,30 @@ import { FullScreenButton } from '../../common/buttons/full-screen-button/full-s
 import { OptionsDashboard } from './options-dashboard/options-dashboard';
 import { CommonModule } from '@angular/common';
 import { PomodoroButton } from '../../common/buttons/pomodoro-button/pomodoro-button';
+import { PomodoroTimer } from './pomodoro-timer/pomodoro-timer';
 
 @Component({
   standalone: true,
   selector: 'app-dashboard',
-  imports: [RouterOutlet, Quote, MainTimer, SoundButton, OptionsButton, FullScreenButton, OptionsDashboard, CommonModule, PomodoroButton],
+  imports: [RouterOutlet, Quote, MainTimer, SoundButton, OptionsButton, FullScreenButton, OptionsDashboard, CommonModule, PomodoroButton, PomodoroTimer],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
 export class Dashboard {
   private _isOptionsDashboardOpen: Boolean = false;
+  private currentTimer : TimerType = TimerType.Normal;
+
+  private set CurrentTimer(value: TimerType)
+  {
+    this.currentTimer = value;
+  }
+
+  public get CurrentTimer() : TimerType
+  {
+    return this.currentTimer;
+  }
+
+  public TimerType = TimerType;
 
   get IsOptionsDashboardOpen() : Boolean
   {
@@ -40,4 +54,15 @@ export class Dashboard {
     this.IsOptionsDashboardOpen = false;
   }
 
+  async pomodoroButtonClicked(event: MouseEvent)
+  {
+    this.CurrentTimer === TimerType.Normal ? this.CurrentTimer = TimerType.Pomodoro : this.CurrentTimer = TimerType.Normal;
+  }
+
+}
+
+enum TimerType
+{
+  Normal,
+  Pomodoro
 }

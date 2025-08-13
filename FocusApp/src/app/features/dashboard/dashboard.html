@@ -7,7 +7,8 @@
 <!-- Centralny element wyśrodkowany w pionie i poziomie -->
 <div class="row flex-grow-1 d-flex align-items-center justify-content-center h-50">
   <div class="col-12 text-center">
-    <app-main-timer></app-main-timer>
+    <app-main-timer *ngIf="CurrentTimer === TimerType.Normal"></app-main-timer>
+    <app-pomodoro-timer *ngIf="CurrentTimer === TimerType.Pomodoro"></app-pomodoro-timer>
   </div>
 </div>
 
@@ -22,7 +23,7 @@
   <div class="col-md-6 col-12-md d-flex align-items-end justify-content-end pe-4">
     <div class="row g-2 g-sm-4">
       <div class="col">
-        <app-pomodoro-button></app-pomodoro-button>
+        <app-pomodoro-button (clickEvent)="pomodoroButtonClicked($event)"></app-pomodoro-button>
       </div>
       <div class="col">
         <app-sound-button></app-sound-button>
