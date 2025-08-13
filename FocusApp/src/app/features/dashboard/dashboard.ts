@@ -7,11 +7,12 @@ import { OptionsButton } from '../../common/buttons/options-button/options-butto
 import { FullScreenButton } from '../../common/buttons/full-screen-button/full-screen-button';
 import { OptionsDashboard } from './options-dashboard/options-dashboard';
 import { CommonModule } from '@angular/common';
+import { PomodoroButton } from '../../common/buttons/pomodoro-button/pomodoro-button';
 
 @Component({
   standalone: true,
   selector: 'app-dashboard',
-  imports: [RouterOutlet, Quote, MainTimer, SoundButton, OptionsButton, FullScreenButton, OptionsDashboard, CommonModule],
+  imports: [RouterOutlet, Quote, MainTimer, SoundButton, OptionsButton, FullScreenButton, OptionsDashboard, CommonModule, PomodoroButton],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
@@ -37,7 +38,6 @@ export class Dashboard {
   async optionsCloseButtonClicked(event: MouseEvent)
   {
     this.IsOptionsDashboardOpen = false;
-    console.log("Dashboard")
   }
 
 }

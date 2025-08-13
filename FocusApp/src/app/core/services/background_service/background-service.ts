@@ -40,7 +40,6 @@ export class BackgroundService {
     this.backgroundSource.next(background);
     this.localStorageService.setItem("background", background);
   }
-
 }
 
 export interface Background {
