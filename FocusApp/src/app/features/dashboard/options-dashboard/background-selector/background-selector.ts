@@ -15,7 +15,6 @@ import { CommonModule } from '@angular/common';
 export class BackgroundSelector {
   constructor(private backgroundService: BackgroundService)
   {
-    this.backgroundService.getStaticBackgrounds()
   }
 
   StaticBackgrounds: Background[] = [];

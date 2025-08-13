@@ -93,6 +93,7 @@ export class SoundService {
     public SetSoundVolume(sound: Sound, volume: number)
     {
       sound.Audio.volume = this.globalVolume * (volume / 100);
+      sound.Volume = volume / 100;
     }
 }
 export interface SoundConfig
