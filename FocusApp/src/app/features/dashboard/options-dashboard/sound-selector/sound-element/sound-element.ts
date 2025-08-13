@@ -21,8 +21,7 @@ export class SoundElement {
 
   ngOnInit()
   {
-    this.volume = this.Sound.Audio.volume * 100;
-    //this.soundService.PlaySound(this.Sound);
+    this.volume = this.Sound.Volume * 100;
   }
 
   onVolumeChange()
