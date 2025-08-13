@@ -1,0 +1,19 @@
+.pomodoro-timer{
+    font-family: 'Inter', sans-serif; 
+    font-size: 128px;                  
+    font-weight: bold;                
+    color: #DBE5DF;
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.7);
+    
+    @media (min-width: 576px) {
+    font-size: 128px;  // średni ekran (sm)
+    }
+
+    @media (min-width: 768px) {
+    font-size: 192px;  // większy ekran (md)
+    }
+
+    @media (min-width: 992px) {
+    font-size: 256px;  // duży ekran (lg)
+    }
+}

@@ -1,7 +1,8 @@
-<div>
-  <h2>Timer: {{ timeString }}</h2>
-
-  <button (click)="startTimer()">Start</button>
-  <button (click)="stopTimer()">Stop</button>
-  <button (click)="resetTimer()">Reset</button>
+<div class="d-flex flex-column justify-content-center align-items-center gap-1">
+  <div class="pomodoro-timer">{{ timeString }}</div>
+  <div class="d-flex gap-2">
+    <app-timer-button (clickEvent)="startTimer()"></app-timer-button> <!-- Play button -->
+    <app-timer-button (clickEvent)="stopTimer()"></app-timer-button> <!-- Stop button -->
+    <app-timer-button (clickEvent)="resetTimer()"></app-timer-button> <!-- Reset button -->
+  </div>
 </div>

@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
+import { TimerButton } from '../../../common/buttons/timer-button/timer-button';
 
 @Component({
   standalone: true,
   selector: 'app-pomodoro-timer',
-  imports: [],
+  imports: [TimerButton],
   templateUrl: './pomodoro-timer.html',
   styleUrl: './pomodoro-timer.scss'
 })
@@ -27,6 +28,7 @@ export class PomodoroTimer implements OnInit, OnDestroy {
   }
 
   startTimer() {
+    console.log("timer start")
     if(!this.TimerIsStarted)
     {
         this.TimerIsStarted = true;
