@@ -1,13 +1,25 @@
 import { Injectable } from '@angular/core';
 import { ConfigService } from '../config_service/config-service';
 import { BehaviorSubject } from 'rxjs';
+import { LocalStorageService } from '../local_storage_service/local-storage-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BackgroundService {
-  constructor(private configService: ConfigService)
+  constructor(private configService: ConfigService, private localStorageService: LocalStorageService)
   {
+    let lastBackground: Background | null = this.localStorageService.getItem("background");
+    let availableBackgrounds : Background[] = []
+    if(lastBackground !== null)
+    {
+      availableBackgrounds = this.getStaticBackgrounds();
+      if(availableBackgrounds.some(background => background.name === lastBackground.name))
+      {
+        this.defaultBackground = lastBackground;
+        this.backgroundSource.next(lastBackground);
+      }
+    }
   }
 
   defaultBackground: Background = {
@@ -26,6 +38,7 @@ export class BackgroundService {
   public updateBackground(background: Background)
   {
     this.backgroundSource.next(background);
+    this.localStorageService.setItem("background", background);
   }
 
 }
