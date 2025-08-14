@@ -38,6 +38,7 @@ export class SoundService {
         let audio: HTMLAudioElement = new Audio(soundConfig.Path);
         audio.volume = 0.5;
         audio.pause();
+        audio.loop = true;
 
         this.sounds.push(
           {
@@ -46,7 +47,7 @@ export class SoundService {
             Audio: audio,
             Volume: audio.volume,
             IconPath: soundConfig.IconPath,
-            IsPlaying: false
+            IsPlaying: false,
           }
         )
       });
