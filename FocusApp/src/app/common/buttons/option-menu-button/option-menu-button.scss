@@ -4,6 +4,11 @@
     background-color: #556d62;
     cursor: pointer;
   }
+
+  &:active {
+    transform: scale(0.95); /* lekko wciśnięty */
+    background-color: #2f4b42; /* ciemniejszy odcień */
+  }
 }
 
 .option-menu-button-text{

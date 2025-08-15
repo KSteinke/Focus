@@ -25,3 +25,13 @@
     margin-bottom: -75px;
     }
 }
+
+.timer-text{
+    font-family: 'Inter', sans-serif; // używasz zaimportowanego fontu
+    font-size: 16px;                  // rozmiar tekstu w pikselach
+    font-weight: bold;                // lub 700 (np. font-weight: 700;)
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    @media (min-width: 576px) {
+    font-size: 28px;  // średni ekran (sm)
+    }  
+}
