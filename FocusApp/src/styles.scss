@@ -79,5 +79,26 @@ html, body {
   object-position: center;
 }
 
+
+
+
+.options-selector{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 60vh;
+
+  @media (min-width: 576px) {
+      max-height: 60vh;
+  }
+
+  @media (min-width: 768px) {
+      max-height: 70vh;
+  }
+
+  @media (min-width: 992px) {
+      max-height: 80vh;
+  }
+}
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

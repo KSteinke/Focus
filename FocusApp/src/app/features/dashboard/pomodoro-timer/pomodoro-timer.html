@@ -5,7 +5,7 @@
     <div class="pomodoro-timer">{{ timeString }}</div>
 </div>
 <div class="row align-items-center">
-  <div class="col d-flex gap-3 justify-content-center ">
+  <div class="col d-flex gap-3 justify-content-center align-items-center ">
     <app-timer-button (clickEvent)="startTimer()" [IconPath]="Button[0].path" *ngIf="!TimerIsStarted"></app-timer-button>
     <app-timer-button (clickEvent)="stopTimer()" [IconPath]="Button[1].path" *ngIf="TimerIsStarted"></app-timer-button>
     <app-timer-button (clickEvent)="resetTimer()" [IconPath]="Button[2].path"></app-timer-button>
