@@ -61,7 +61,7 @@ export class Dashboard {
 
 }
 
-enum TimerType
+export enum TimerType
 {
   Normal,
   Pomodoro
