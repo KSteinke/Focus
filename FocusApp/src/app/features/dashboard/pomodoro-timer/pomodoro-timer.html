@@ -2,7 +2,7 @@
     <div class="text-white timer-text">Work time!</div>
 </div>
 <div class="row justify-content-center align-items-center" >
-    <div class="pomodoro-timer">{{ timeString }}</div>
+    <div class="pomodoro-timer">{{ timeString$ | async  }}</div>
 </div>
 <div class="row align-items-center">
   <div class="col d-flex gap-3 justify-content-center align-items-center ">

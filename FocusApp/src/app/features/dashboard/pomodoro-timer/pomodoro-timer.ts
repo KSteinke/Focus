@@ -1,8 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { TimerButton } from '../../../common/buttons/timer-button/timer-button';
 import { CommonModule } from '@angular/common';
 import { TextButton } from '../../../common/buttons/text-button/text-button';
+import { map, Observable, Subscription } from 'rxjs';
+import { PomodoroTimerService } from '../../../core/services/pomodoro-timer-service/pomodoro-timer-service';
 
 @Component({
   standalone: true,
@@ -12,17 +14,32 @@ import { TextButton } from '../../../common/buttons/text-button/text-button';
   styleUrl: './pomodoro-timer.scss'
 })
 
-export class PomodoroTimer implements OnInit, OnDestroy {
+export class PomodoroTimer implements OnInit{
 
-  constructor(private cd : ChangeDetectorRef) {}
-  seconds: number = 0;
-  private intervalId: any;
-  private WorkPeriodInSeconds : number = 12; 
-  private timerIsStarted : boolean = false;
-  public get TimerIsStarted()
+  constructor(private pomodoroTimerService: PomodoroTimerService) {}
+  
+  public timerIsStartedSubscription! : Subscription;
+  public TimerIsStarted!: boolean;
+  
+  public timeString$!: Observable<string>;
+
+
+  ngOnInit()
   {
-    return this.timerIsStarted;
-  }
+    
+    this.timerIsStartedSubscription = this.pomodoroTimerService.TimerIsStarted.subscribe(isStarted => {
+      this.TimerIsStarted = isStarted;
+    });
+    
+    this.timeString$ = this.pomodoroTimerService.Seconds.pipe(
+      map(seconds => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+      })
+    );
+
+  }  
 
   public Button = [
     {
@@ -47,53 +64,29 @@ export class PomodoroTimer implements OnInit, OnDestroy {
     }
   ]
 
-  ngOnInit() {
-    this.seconds = this.WorkPeriodInSeconds;
-  }
-
-  ngOnDestroy() {
-    clearInterval(this.intervalId);
-  }
-
   startTimer() {
-    
-    if(this.seconds <= 0)
-    {
-      this.resetTimer();
-    }
-    
-    if(!this.timerIsStarted)
-    {
-        this.timerIsStarted = true;
-        this.intervalId = setInterval(() => {
-        
-        if(this.seconds <= 0)
-        {
-          this.stopTimer();
-        }
-        else{
-          this.seconds--;
-        }
-
-        this.cd.detectChanges();
-      }, 1000);
-    }
+    this.pomodoroTimerService.StartTimer();
   }
 
   stopTimer() {
-    this.timerIsStarted = false;
-    clearInterval(this.intervalId);
+    this.pomodoroTimerService.StopTimer();
   }
 
   resetTimer() {
-    this.seconds = this.WorkPeriodInSeconds;
+    this.pomodoroTimerService.ResetTimer();
   }
 
+  ngOnDestroy() {
+    this.timerIsStartedSubscription.unsubscribe();
+  }
+
+
   // getter do formatu hh:mm:ss
+  /*
   get timeString(): string {
-    const hrs = Math.floor(this.seconds / 3600);
-    const mins = Math.floor((this.seconds % 3600) / 60);
-    const secs = this.seconds % 60;
+    const hrs = Math.floor(this.Seconds / 3600);
+    const mins = Math.floor((this.Seconds % 3600) / 60);
+    const secs = this.Seconds % 60;
 
     // dodajemy zera wiodące
     const hh = String(hrs).padStart(2, '0');
@@ -102,4 +95,5 @@ export class PomodoroTimer implements OnInit, OnDestroy {
 
     return `${mm}:${ss}`;
   }
+    */
 }
