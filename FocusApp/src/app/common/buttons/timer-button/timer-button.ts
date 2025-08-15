@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-timer-button',
@@ -7,7 +7,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrl: './timer-button.scss'
 })
 export class TimerButton {
-  public IconPath: String = "";
+  @Input() public IconPath: String = "";
   public Name: String = "";
 
   @Output() clickEvent = new EventEmitter(true);

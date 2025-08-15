@@ -1,8 +1,9 @@
 <div class="d-flex flex-column justify-content-center align-items-center gap-1">
+  <div class="text-white">Work time!</div>
   <div class="pomodoro-timer">{{ timeString }}</div>
-  <div class="d-flex gap-2">
-    <app-timer-button (clickEvent)="startTimer()"></app-timer-button> <!-- Play button -->
-    <app-timer-button (clickEvent)="stopTimer()"></app-timer-button> <!-- Stop button -->
-    <app-timer-button (clickEvent)="resetTimer()"></app-timer-button> <!-- Reset button -->
+  <div class="d-flex gap-3">
+    <app-timer-button (clickEvent)="startTimer()" [IconPath]="Button[0].path" *ngIf="!TimerIsStarted"></app-timer-button> <!-- Play button -->
+    <app-timer-button (clickEvent)="stopTimer()" [IconPath]="Button[1].path" *ngIf="TimerIsStarted"></app-timer-button> <!-- Stop button -->
+    <app-timer-button (clickEvent)="resetTimer()" [IconPath]="Button[2].path"></app-timer-button> <!-- Reset button -->
   </div>
 </div>
