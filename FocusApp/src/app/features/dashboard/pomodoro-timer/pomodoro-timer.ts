@@ -16,7 +16,7 @@ import { PomodoroTimerService } from '../../../core/services/pomodoro-timer-serv
 
 export class PomodoroTimer implements OnInit{
 
-  constructor(private pomodoroTimerService: PomodoroTimerService) {}
+  constructor(private pomodoroTimerService: PomodoroTimerService, private cdr: ChangeDetectorRef) {}
   
   public timerIsStartedSubscription! : Subscription;
   public TimerIsStarted!: boolean;
@@ -29,6 +29,7 @@ export class PomodoroTimer implements OnInit{
     
     this.timerIsStartedSubscription = this.pomodoroTimerService.TimerIsStarted.subscribe(isStarted => {
       this.TimerIsStarted = isStarted;
+      this.cdr.detectChanges(); // <-- wymusza aktualizację ngIf
     });
     
     this.timeString$ = this.pomodoroTimerService.Seconds.pipe(
@@ -38,6 +39,9 @@ export class PomodoroTimer implements OnInit{
         return `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
       })
     );
+
+    
+
 
   }  
 

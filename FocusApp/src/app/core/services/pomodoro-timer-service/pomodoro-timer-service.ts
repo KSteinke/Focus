@@ -11,8 +11,8 @@ export class PomodoroTimerService {
 
   }
 
-  private WorkPeriodInSeconds : number = 12; 
-  private seconds = new BehaviorSubject<number>(this.WorkPeriodInSeconds);
+  private workPeriodInSeconds : number = 1234; 
+  private seconds = new BehaviorSubject<number>(this.workPeriodInSeconds);
   Seconds = this.seconds.asObservable();
   private timerIsStarted = new BehaviorSubject<boolean>(false);
   public TimerIsStarted = this.timerIsStarted.asObservable();
@@ -21,7 +21,7 @@ export class PomodoroTimerService {
 
 
   ngOnInit() {
-    this.seconds.next(this.WorkPeriodInSeconds);
+    this.seconds.next(this.workPeriodInSeconds);
     this.timerIsStarted.next(false);
   }
 
@@ -59,7 +59,7 @@ export class PomodoroTimerService {
 
   public ResetTimer()
   {
-    this.seconds.next(this.WorkPeriodInSeconds);
+    this.seconds.next(this.workPeriodInSeconds);
   }
 
 }
