@@ -24,7 +24,37 @@ html, body {
     transform: scale(1.1); // powiększa o 10%
     background-color: #556d62;
   }
+
+   &:active {
+    transform: scale(0.95); /* lekko wciśnięty */
+    background-color: #2f4b42; /* ciemniejszy odcień */
+  }
 }
+
+.rectangle-top-button{
+    background-color: #3F5E53;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: solid #DBE5DF;
+    border-radius: 15px;
+    transition: transform 0.15s ease-in-out;
+    
+
+  &:hover {
+    transform: scale(1.1); // powiększa o 10%
+    background-color: #556d62;
+  }
+
+   &:active {
+    transform: scale(0.95); /* lekko wciśnięty */
+    background-color: #2f4b42; /* ciemniejszy odcień */
+  }
+  
+}
+
+
 
 
 .sqare-inside-button{
@@ -35,6 +65,20 @@ html, body {
     align-items: center;
     justify-content: center;
     width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.rectangle-inside-button{
+    background-color: #3F5E53;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 36px;
     padding: 0;
     border: none;
