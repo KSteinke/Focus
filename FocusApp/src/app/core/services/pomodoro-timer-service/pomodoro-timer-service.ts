@@ -53,7 +53,6 @@ export class PomodoroTimerService {
   public StopTimer()
   {
     this.timerIsStarted.next(false);
-    console.log("Timer is stopped")
     clearInterval(this.intervalId);
   }
 

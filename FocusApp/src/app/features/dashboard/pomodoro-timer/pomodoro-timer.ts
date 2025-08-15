@@ -39,10 +39,6 @@ export class PomodoroTimer implements OnInit{
         return `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
       })
     );
-
-    
-
-
   }  
 
   public Button = [
@@ -78,6 +74,11 @@ export class PomodoroTimer implements OnInit{
 
   resetTimer() {
     this.pomodoroTimerService.ResetTimer();
+  }
+
+  togleBreak()
+  {
+    
   }
 
   ngOnDestroy() {

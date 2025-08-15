@@ -9,6 +9,6 @@
     <app-timer-button (clickEvent)="startTimer()" [IconPath]="Button[0].path" *ngIf="!TimerIsStarted"></app-timer-button>
     <app-timer-button (clickEvent)="stopTimer()" [IconPath]="Button[1].path" *ngIf="TimerIsStarted"></app-timer-button>
     <app-timer-button (clickEvent)="resetTimer()" [IconPath]="Button[2].path"></app-timer-button>
-    <app-text-button [IconPath]="Button[3].path"></app-text-button>
+    <app-text-button (clickEvent)= "togleBreak() "[IconPath]="Button[3].path"></app-text-button>
 </div>
 
