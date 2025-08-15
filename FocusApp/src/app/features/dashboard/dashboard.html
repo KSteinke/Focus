@@ -6,7 +6,7 @@
 
 <!-- Centralny element wyśrodkowany w pionie i poziomie -->
 <div class="row flex-grow-1 d-flex align-items-center justify-content-center h-50">
-  <div class="col-12 text-center">
+  <div class="col text-center">
     <app-main-timer *ngIf="CurrentTimer === TimerType.Normal"></app-main-timer>
     <app-pomodoro-timer *ngIf="CurrentTimer === TimerType.Pomodoro"></app-pomodoro-timer>
   </div>

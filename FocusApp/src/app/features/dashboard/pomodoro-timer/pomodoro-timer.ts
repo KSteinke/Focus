@@ -64,6 +64,6 @@ export class PomodoroTimer implements OnInit, OnDestroy {
     const mm = String(mins).padStart(2, '0');
     const ss = String(secs).padStart(2, '0');
 
-    return `${hh}:${mm}:${ss}`;
+    return `${mm}:${ss}`;
   }
 }
