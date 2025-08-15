@@ -4,16 +4,24 @@
     font-weight: bold;                
     color: #DBE5DF;
     text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
+    margin-top: -50px;
+    margin-bottom: -50px;
     
     @media (min-width: 576px) {
     font-size: 128px;  // średni ekran (sm)
+    margin-top: -50px;
+    margin-bottom: -50px;
     }
 
     @media (min-width: 768px) {
     font-size: 192px;  // większy ekran (md)
+    margin-top: -50px;
+    margin-bottom: -50px;
     }
 
     @media (min-width: 992px) {
     font-size: 256px;  // duży ekran (lg)
+    margin-top: -75px;
+    margin-bottom: -75px;
     }
 }
