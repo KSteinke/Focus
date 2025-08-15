@@ -16,7 +16,7 @@ export class PomodoroTimer implements OnInit, OnDestroy {
   constructor(private cd : ChangeDetectorRef) {}
   seconds: number = 0;
   private intervalId: any;
-  private WorkPeriodInSeconds : number = 12; //REMOVE - 1h 35m 35s
+  private WorkPeriodInSeconds : number = 12; 
   private timerIsStarted : boolean = false;
   public get TimerIsStarted()
   {
