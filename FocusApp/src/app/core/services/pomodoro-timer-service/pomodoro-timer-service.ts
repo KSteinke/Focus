@@ -1,18 +1,25 @@
 import { ApplicationRef, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { LocalStorageService } from '../local_storage_service/local-storage-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PomodoroTimerService {
 
-  constructor()
+  constructor(private localStorageService: LocalStorageService)
   {
-
+    
   }
 
-  private workPeriodInSeconds : number = 1234; 
-  private seconds = new BehaviorSubject<number>(this.workPeriodInSeconds);
+  private CurrentPomodoroTimerType : PomodoroTimerType = PomodoroTimerType.Work;
+
+  private PomodoroTimerPeriods : Record<PomodoroTimerType, number> = {
+    [PomodoroTimerType.Work] : 1234,
+    [PomodoroTimerType.Break] : 300
+  };
+
+  private seconds = new BehaviorSubject<number>(this.PomodoroTimerPeriods[this.CurrentPomodoroTimerType]);
   Seconds = this.seconds.asObservable();
   private timerIsStarted = new BehaviorSubject<boolean>(false);
   public TimerIsStarted = this.timerIsStarted.asObservable();
@@ -21,7 +28,7 @@ export class PomodoroTimerService {
 
 
   ngOnInit() {
-    this.seconds.next(this.workPeriodInSeconds);
+    this.seconds.next(this.PomodoroTimerPeriods[this.CurrentPomodoroTimerType]);
     this.timerIsStarted.next(false);
   }
 
@@ -58,7 +65,13 @@ export class PomodoroTimerService {
 
   public ResetTimer()
   {
-    this.seconds.next(this.workPeriodInSeconds);
+    this.seconds.next(this.PomodoroTimerPeriods[this.CurrentPomodoroTimerType]);
   }
 
+}
+
+
+export enum PomodoroTimerType{
+  Work,
+  Break
 }
