@@ -1,0 +1,19 @@
+.time-format-element {
+    border-radius: 20px;
+    background-size: 100% 100%;     /* albo 'cover' */
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: transform 0.15s ease-in-out;
+    
+    border: solid white 3px;
+
+    &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+    &:active {
+    transform: scale(0.95); /* lekko wciśnięty */
+    background-color: #2f4b42; /* ciemniejszy odcień */
+  }
+}

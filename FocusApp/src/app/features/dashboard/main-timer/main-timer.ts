@@ -1,6 +1,8 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
+import { MainTimerSerivice } from '../../../core/services/main-timer-service/main-timer-serivice';
+import { Subscription } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -13,12 +15,20 @@ export class MainTimer {
   now = new Date();
   is24Hour = false;
   intervalId: any;
+  private isTimeFormat24hSubscription! : Subscription;
 
-  constructor(private cd: ChangeDetectorRef) {
+  constructor(private cd: ChangeDetectorRef, private mainTimerService: MainTimerSerivice) {
     this.intervalId = setInterval(() => {
       this.now = new Date();
       this.cd.detectChanges();
     }, 5000);
+
+    this.isTimeFormat24hSubscription = this.mainTimerService.TimeFormatIs24hObservable.subscribe( is24h =>
+    {
+      this.is24Hour = is24h;
+    }
+    )
+
   }
 
   ngOnDestroy() {

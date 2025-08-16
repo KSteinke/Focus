@@ -1,1 +1,29 @@
-<p>timer-settings-selector works!</p>
+<div class="container text-white">
+    <div class="row">
+        <div class="col text-center pb-2">
+            <h3>Adjust clock and timer settings!</h3>
+        </div>
+    </div>
+    <div class="options-selector scrollable px-2">
+        <div class="row">
+            <div class="col text-center pb-4 pt-4">
+                <h5>Clock options</h5>
+            </div>
+        </div>
+        <div class="row p-2 text-center text-white">
+            <div class="col-6 px-4">
+                <app-time-format-element [TimeFormat]="TimeFormatElements[0]"></app-time-format-element>
+                <div class="m-2">
+                    12h
+                </div>
+            </div>
+            <div class="col-6 px-4">
+                <app-time-format-element [TimeFormat]="TimeFormatElements[1]"></app-time-format-element>
+                <div class="m-2">
+                    24h
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
