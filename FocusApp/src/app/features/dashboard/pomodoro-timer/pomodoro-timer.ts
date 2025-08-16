@@ -78,7 +78,7 @@ export class PomodoroTimer implements OnInit{
 
   togleBreak()
   {
-    
+    this.pomodoroTimerService.TogleTimerType();
   }
 
   ngOnDestroy() {

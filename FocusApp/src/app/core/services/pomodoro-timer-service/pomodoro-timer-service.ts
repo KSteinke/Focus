@@ -68,6 +68,12 @@ export class PomodoroTimerService {
     this.seconds.next(this.PomodoroTimerPeriods[this.CurrentPomodoroTimerType]);
   }
 
+  public TogleTimerType()
+  {
+    this.CurrentPomodoroTimerType === PomodoroTimerType.Work ? this.CurrentPomodoroTimerType = PomodoroTimerType.Break : this.CurrentPomodoroTimerType = PomodoroTimerType.Work;
+    this.ResetTimer();
+  }
+
 }
 
 
