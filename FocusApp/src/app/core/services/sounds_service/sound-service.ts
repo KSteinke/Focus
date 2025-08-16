@@ -55,6 +55,7 @@ export class SoundService {
 
     public TogleSound(sound: Sound)
     {
+      this.UnMuteAllSounds();
       if(sound.IsPlaying)
       {
         sound.Audio.pause();
