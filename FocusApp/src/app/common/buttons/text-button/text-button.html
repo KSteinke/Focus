@@ -1,8 +1,8 @@
 <div class="d-flex align-items-center gap-2 rectangle-top-button">
   <button class="rectangle-inside-button gap-2 mx-2" (click)="buttonCicked()" >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="32" height="32" fill="currentColor">
-        <path [attr.d] = "IconPath"></path>
+        <path [attr.d] = "TextButtonModel.IconPath"></path>
       </svg>
-    <div class="text-white">Take a break!</div>
+    <div class="text-white">{{TextButtonModel.Text}}</div>
   </button>
 </div>

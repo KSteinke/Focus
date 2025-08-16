@@ -2,9 +2,9 @@ import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { TimerButton } from '../../../common/buttons/timer-button/timer-button';
 import { CommonModule } from '@angular/common';
-import { TextButton } from '../../../common/buttons/text-button/text-button';
+import { TextButton, TextButtonModel } from '../../../common/buttons/text-button/text-button';
 import { map, Observable, Subscription } from 'rxjs';
-import { PomodoroTimerService } from '../../../core/services/pomodoro-timer-service/pomodoro-timer-service';
+import { PomodoroTimerService, PomodoroTimerType } from '../../../core/services/pomodoro-timer-service/pomodoro-timer-service';
 
 @Component({
   standalone: true,
@@ -22,6 +22,8 @@ export class PomodoroTimer implements OnInit{
   public TimerIsStarted!: boolean;
   
   public timeString$!: Observable<string>;
+  public togleBreakButtonModel! : TextButtonModel;
+  public togleBreakText!: string;
 
 
   ngOnInit()
@@ -39,6 +41,9 @@ export class PomodoroTimer implements OnInit{
         return `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
       })
     );
+    
+    this.setBreakButtonProperties();
+
   }  
 
   public Button = [
@@ -79,26 +84,18 @@ export class PomodoroTimer implements OnInit{
   togleBreak()
   {
     this.pomodoroTimerService.TogleTimerType();
+    this.setBreakButtonProperties();
+  }
+
+  private setBreakButtonProperties()
+  {
+    this.pomodoroTimerService.CurrentPomodoroTimerType === PomodoroTimerType.Work ? this.togleBreakButtonModel = { IconPath : this.Button[3].path, Text : "Take a break!" } : this.togleBreakButtonModel = { IconPath : this.Button[4].path, Text : "Back to work!" } ;
+    this.pomodoroTimerService.CurrentPomodoroTimerType === PomodoroTimerType.Work ? this.togleBreakText = "Stay focus!" : this.togleBreakText = "Time for break!"
+  
   }
 
   ngOnDestroy() {
     this.timerIsStartedSubscription.unsubscribe();
   }
 
-
-  // getter do formatu hh:mm:ss
-  /*
-  get timeString(): string {
-    const hrs = Math.floor(this.Seconds / 3600);
-    const mins = Math.floor((this.Seconds % 3600) / 60);
-    const secs = this.Seconds % 60;
-
-    // dodajemy zera wiodące
-    const hh = String(hrs).padStart(2, '0');
-    const mm = String(mins).padStart(2, '0');
-    const ss = String(secs).padStart(2, '0');
-
-    return `${mm}:${ss}`;
-  }
-    */
 }

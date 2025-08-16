@@ -12,14 +12,19 @@ export class PomodoroTimerService {
     
   }
 
-  private CurrentPomodoroTimerType : PomodoroTimerType = PomodoroTimerType.Work;
+  private currentPomodoroTimerType : PomodoroTimerType = PomodoroTimerType.Work;
+  public get CurrentPomodoroTimerType(): PomodoroTimerType
+  {
+    return this.currentPomodoroTimerType;
+  }
+  
 
   private PomodoroTimerPeriods : Record<PomodoroTimerType, number> = {
     [PomodoroTimerType.Work] : 1234,
     [PomodoroTimerType.Break] : 300
   };
 
-  private seconds = new BehaviorSubject<number>(this.PomodoroTimerPeriods[this.CurrentPomodoroTimerType]);
+  private seconds = new BehaviorSubject<number>(this.PomodoroTimerPeriods[this.currentPomodoroTimerType]);
   Seconds = this.seconds.asObservable();
   private timerIsStarted = new BehaviorSubject<boolean>(false);
   public TimerIsStarted = this.timerIsStarted.asObservable();
@@ -28,7 +33,7 @@ export class PomodoroTimerService {
 
 
   ngOnInit() {
-    this.seconds.next(this.PomodoroTimerPeriods[this.CurrentPomodoroTimerType]);
+    this.seconds.next(this.PomodoroTimerPeriods[this.currentPomodoroTimerType]);
     this.timerIsStarted.next(false);
   }
 
@@ -65,12 +70,12 @@ export class PomodoroTimerService {
 
   public ResetTimer()
   {
-    this.seconds.next(this.PomodoroTimerPeriods[this.CurrentPomodoroTimerType]);
+    this.seconds.next(this.PomodoroTimerPeriods[this.currentPomodoroTimerType]);
   }
 
   public TogleTimerType()
   {
-    this.CurrentPomodoroTimerType === PomodoroTimerType.Work ? this.CurrentPomodoroTimerType = PomodoroTimerType.Break : this.CurrentPomodoroTimerType = PomodoroTimerType.Work;
+    this.currentPomodoroTimerType === PomodoroTimerType.Work ? this.currentPomodoroTimerType = PomodoroTimerType.Break : this.currentPomodoroTimerType = PomodoroTimerType.Work;
     this.ResetTimer();
   }
 
