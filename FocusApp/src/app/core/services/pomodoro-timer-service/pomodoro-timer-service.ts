@@ -1,13 +1,14 @@
 import { ApplicationRef, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { LocalStorageService } from '../local_storage_service/local-storage-service';
+import { SoundService } from '../sounds_service/sound-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PomodoroTimerService {
 
-  constructor(private localStorageService: LocalStorageService)
+  constructor(private localStorageService: LocalStorageService, private soundService : SoundService)
   {
     
   }
@@ -43,6 +44,7 @@ export class PomodoroTimerService {
 
   public StartTimer()
   {
+    this.soundService.UnMuteAllSounds();
     if(this.seconds.value <= 0)
     {
       this.ResetTimer();
@@ -66,6 +68,7 @@ export class PomodoroTimerService {
   {
     this.timerIsStarted.next(false);
     clearInterval(this.intervalId);
+    this.soundService.MuteAllSounds();
   }
 
   public ResetTimer()
