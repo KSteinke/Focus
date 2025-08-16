@@ -31,7 +31,7 @@ export class OptionsDashboard {
 
 
 
-  public CurrentOptionsCard: string = "Background";
+  public CurrentOptionsCard: string = "Backgrounds";
 
   @Output() clickEvent = new EventEmitter(true);
 

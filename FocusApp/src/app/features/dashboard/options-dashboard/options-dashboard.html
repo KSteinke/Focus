@@ -15,7 +15,7 @@
         <div class="row h-100">
             <div class=" col-5 col-sm-6 col-md-6 col-lg-4 col-xl-3 text-white gap-3 options-dashboard-menu">
                 <div class="row" *ngFor="let button of Buttons">
-                    <app-option-menu-button [Name]="button.name" [IconPath]="button.iconPath" (clickEvent)="menuButtonClicked($event)"></app-option-menu-button>
+                    <app-option-menu-button [Name]="button.name" [IconPath]="button.iconPath" (clickEvent)="menuButtonClicked($event)" [selected]="CurrentOptionsCard === button.name"></app-option-menu-button>
                 </div>
             </div>
             <div class="col">
