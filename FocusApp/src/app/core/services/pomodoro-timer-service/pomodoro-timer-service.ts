@@ -21,8 +21,8 @@ export class PomodoroTimerService {
   
 
   private PomodoroTimerPeriods : Record<PomodoroTimerType, number> = {
-    [PomodoroTimerType.Work] : 1234,
-    [PomodoroTimerType.Break] : 300
+    [PomodoroTimerType.Work] : 12,
+    [PomodoroTimerType.Break] : 15
   };
 
   private seconds = new BehaviorSubject<number>(this.PomodoroTimerPeriods[this.currentPomodoroTimerType]);
@@ -56,7 +56,7 @@ export class PomodoroTimerService {
 
       this.intervalId = setInterval(() => {
         if(this.seconds.value <= 0) {
-          this.StopTimer();
+          this.TogleTimerType();
         } else {
           this.seconds.next(this.seconds.value - 1);
         }

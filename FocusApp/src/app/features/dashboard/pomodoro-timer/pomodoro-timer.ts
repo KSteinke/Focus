@@ -25,6 +25,17 @@ export class PomodoroTimer implements OnInit{
   public togleBreakButtonModel! : TextButtonModel;
   public togleBreakText!: string;
 
+  public get TogleBreakButtonModel(): TextButtonModel {
+  return this.pomodoroTimerService.CurrentPomodoroTimerType === PomodoroTimerType.Work
+    ? { IconPath: this.Button[3].path, Text: "Take a break!" }
+    : { IconPath: this.Button[4].path, Text: "Back to work!" };
+}
+
+public get TogleBreakText(): string {
+  return this.pomodoroTimerService.CurrentPomodoroTimerType === PomodoroTimerType.Work
+    ? "Stay focus!"
+    : "Time for break!";
+  }
 
   ngOnInit()
   {
@@ -42,8 +53,6 @@ export class PomodoroTimer implements OnInit{
       })
     );
     
-    this.setBreakButtonProperties();
-
   }  
 
   public Button = [
@@ -84,14 +93,6 @@ export class PomodoroTimer implements OnInit{
   togleBreak()
   {
     this.pomodoroTimerService.TogleTimerType();
-    this.setBreakButtonProperties();
-  }
-
-  private setBreakButtonProperties()
-  {
-    this.pomodoroTimerService.CurrentPomodoroTimerType === PomodoroTimerType.Work ? this.togleBreakButtonModel = { IconPath : this.Button[3].path, Text : "Take a break!" } : this.togleBreakButtonModel = { IconPath : this.Button[4].path, Text : "Back to work!" } ;
-    this.pomodoroTimerService.CurrentPomodoroTimerType === PomodoroTimerType.Work ? this.togleBreakText = "Stay focus!" : this.togleBreakText = "Time for break!"
-  
   }
 
   ngOnDestroy() {
