@@ -10,7 +10,11 @@ export class PomodoroTimerService {
 
   constructor(private localStorageService: LocalStorageService, private soundService : SoundService)
   {
-    
+    this.getPomodoroTimerPeriodsFromLocalStorage();
+    console.log(this.pomodoroTimerPeriods[PomodoroTimerType.Work]);
+    console.log(this.pomodoroTimerPeriods[PomodoroTimerType.Break]);
+    this.seconds.next(this.pomodoroTimerPeriods[this.currentPomodoroTimerType]);
+    this.timerIsStarted.next(false);
   }
 
   private currentPomodoroTimerType : PomodoroTimerType = PomodoroTimerType.Work;
@@ -20,22 +24,38 @@ export class PomodoroTimerService {
   }
   
 
-  private PomodoroTimerPeriods : Record<PomodoroTimerType, number> = {
-    [PomodoroTimerType.Work] : 12,
-    [PomodoroTimerType.Break] : 15
+  private pomodoroTimerPeriods : Record<PomodoroTimerType, number> = {
+    [PomodoroTimerType.Work] : 2700,
+    [PomodoroTimerType.Break] : 300
   };
 
-  private seconds = new BehaviorSubject<number>(this.PomodoroTimerPeriods[this.currentPomodoroTimerType]);
+  public get PomodoroTimerPeriods ()
+  {
+    return this.pomodoroTimerPeriods;
+  }
+
+  private seconds = new BehaviorSubject<number>(this.pomodoroTimerPeriods[this.currentPomodoroTimerType]);
   Seconds = this.seconds.asObservable();
   private timerIsStarted = new BehaviorSubject<boolean>(false);
   public TimerIsStarted = this.timerIsStarted.asObservable();
 
   private intervalId: any;
+  private getPomodoroTimerPeriodsFromLocalStorage()
+  {
+    this.getPomodoroTimerPeriodFromLocalStorage(PomodoroTimerType.Work);
+        this.getPomodoroTimerPeriodFromLocalStorage(PomodoroTimerType.Break);
 
+  }
+
+  private getPomodoroTimerPeriodFromLocalStorage(pomodoroTimerType: PomodoroTimerType)
+  {
+    let period: number | null = this.localStorageService.getItem(pomodoroTimerType.toString());
+    if(period != null)
+      this.pomodoroTimerPeriods[pomodoroTimerType] = period;
+  }
 
   ngOnInit() {
-    this.seconds.next(this.PomodoroTimerPeriods[this.currentPomodoroTimerType]);
-    this.timerIsStarted.next(false);
+
   }
 
   ngOnDestroy() {
@@ -73,13 +93,21 @@ export class PomodoroTimerService {
 
   public ResetTimer()
   {
-    this.seconds.next(this.PomodoroTimerPeriods[this.currentPomodoroTimerType]);
+    this.seconds.next(this.pomodoroTimerPeriods[this.currentPomodoroTimerType]);
   }
 
   public TogleTimerType()
   {
     this.currentPomodoroTimerType === PomodoroTimerType.Work ? this.currentPomodoroTimerType = PomodoroTimerType.Break : this.currentPomodoroTimerType = PomodoroTimerType.Work;
     this.ResetTimer();
+  }
+
+  public SetPomodoroTimersTime(pomodoroTimerType: PomodoroTimerType, timePeriodValueInSec: number)
+  {
+    this.pomodoroTimerPeriods[pomodoroTimerType] = timePeriodValueInSec;
+    this.StopTimer();
+    this.ResetTimer();
+    this.localStorageService.setItem(pomodoroTimerType.toString(), timePeriodValueInSec);
   }
 
 }

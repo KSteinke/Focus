@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PomodoroTimerService, PomodoroTimerType } from '../../../../../core/services/pomodoro-timer-service/pomodoro-timer-service';
 
 @Component({
   selector: 'app-pomodoro-timer-set-element',
@@ -10,37 +11,44 @@ import { FormsModule } from '@angular/forms';
 })
 export class PomodoroTimerSetElement {
 
-  constructor(private cd: ChangeDetectorRef)
+  constructor(private cd: ChangeDetectorRef, private pomodoroTimerService : PomodoroTimerService)
   {
-
   }
-  value: number = 1;
+
+  value!: number;
   @Input() PomodoroTimerSetElementModel! : PomodoroTimerSetElementModel;
   @Output() valueChange = new EventEmitter<number>();
 
-  // Obsługa zmiany
-  onValueChange(event: any) {
-    let newValue = Number(event.target.value);
+  ngOnInit()
+  {
+    this.value = this.pomodoroTimerService.PomodoroTimerPeriods[this.PomodoroTimerSetElementModel.Id] / 60;
+  }
 
-    /*
+  // Obsługa zmiany
+  onValueChange(newValue: number) {
+    
     // Sprawdzenie czy liczba całkowita
     if (!Number.isInteger(newValue)) {
       newValue = Math.round(newValue);
     }
-    */
+    
     // Zakres 1–60
     if (isNaN(newValue) || newValue < 1) {
-      newValue = 1;
+    newValue = 1;
     }
     if (newValue > 60) {
       newValue = 60;
     }
 
-    console.log(this.value);
-
     this.value = newValue;
+
+    this.pomodoroTimerService.SetPomodoroTimersTime(
+      this.PomodoroTimerSetElementModel.Id,
+      this.value * 60
+    );
+
     this.valueChange.emit(this.value);
-    this.cd.detectChanges();
+
 
   }
 
@@ -54,16 +62,18 @@ export class PomodoroTimerSetElement {
 
   }
 
+  
   onConfirm() {
-    if (this.value < 1) this.value = 1;
-    if (this.value > 60) this.value = 60;
+
+    this.onValueChange(this.value);
 
     this.cd.detectChanges();
   }
+  
 }
 
 export interface PomodoroTimerSetElementModel
 {
-  Id: string;
+  Id: PomodoroTimerType;
   Label: string;
 }

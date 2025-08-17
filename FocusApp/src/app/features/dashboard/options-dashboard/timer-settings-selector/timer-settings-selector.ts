@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TimeFormat, TimeFormatElement } from './time-format-element/time-format-element';
 import { PomodoroTimerSetElement, PomodoroTimerSetElementModel } from './pomodoro-timer-set-element/pomodoro-timer-set-element';
+import { PomodoroTimerType } from '../../../../core/services/pomodoro-timer-service/pomodoro-timer-service';
 
 @Component({
   selector: 'app-timer-settings-selector',
@@ -24,11 +25,11 @@ export class TimerSettingsSelector {
 
   public PomodoroTimerSetElements : PomodoroTimerSetElementModel[] = [
     {
-      Id: "worktimer",
+      Id: PomodoroTimerType.Work,
       Label: "Work period time set:"
     },
     {
-      Id: "breaktimer",
+      Id: PomodoroTimerType.Break,
       Label: "Break period time set:"
     }
   ]
