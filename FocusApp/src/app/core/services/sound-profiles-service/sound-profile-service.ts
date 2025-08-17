@@ -51,6 +51,11 @@ export class SoundProfileService {
 
       }
     }
+
+    public PlaySoundProfile(soundProfile: SoundProfile)
+    {
+      this.soundService.PlaySounds(soundProfile.Sounds);
+    }
   
 }
 

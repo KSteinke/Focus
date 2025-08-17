@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { SoundProfile } from '../../../core/services/sound-profiles-service/sound-profile-service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SoundProfile, SoundProfileService } from '../../../core/services/sound-profiles-service/sound-profile-service';
 
 @Component({
   selector: 'app-set-sound-profile-button',
@@ -8,10 +8,11 @@ import { SoundProfile } from '../../../core/services/sound-profiles-service/soun
   styleUrl: './set-sound-profile-button.scss'
 })
 export class SetSoundProfileButton {
- @Input() SoundProfile!: SoundProfile;
+  @Input() SoundProfile!: SoundProfile;
 
+  constructor(private soundProfileService: SoundProfileService) {}
  public ButtonClicked()
  {
-  
+    this.soundProfileService.PlaySoundProfile(this.SoundProfile);
  }
 }

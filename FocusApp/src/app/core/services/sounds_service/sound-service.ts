@@ -131,6 +131,25 @@ export class SoundService {
       this.soundsVolumeChangedSubject.next();
     }
 
+    public PlaySounds(sounds: Sound[])
+    {
+      this.ResetSounds();
+      sounds.forEach(sound => {
+        const matchSound = this.Sounds.find(originalSounds => originalSounds.Id === sound.Id)
+        if(matchSound)
+        {
+          matchSound.IsPlaying = sound.IsPlaying;
+          matchSound.Volume = sound.Volume;
+          matchSound.Audio.volume = sound.Volume * this.globalVolume;
+          matchSound.Audio.play();
+        }
+      })
+      this.soundsVolumeChangedSubject.next();
+
+    }
+
+    
+
     private ClearLocalStorageSounds()
     {
       this.sounds.forEach(sound => {
