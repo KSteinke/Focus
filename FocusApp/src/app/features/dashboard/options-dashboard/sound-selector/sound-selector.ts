@@ -49,7 +49,7 @@ export class SoundSelector {
 
   public saveSoundProfile()
   {
-    if(this.SoundProfiles.length <= 3)
+    if(this.SoundProfiles.length < 3)
     {
           this.soundProfileService.SaveSoundProfile();
           this.cd.detectChanges();
