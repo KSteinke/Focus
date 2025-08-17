@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BackgroundSelector } from './background-selector/background-selector';
 import { SoundSelector } from './sound-selector/sound-selector';
 import { TimerSettingsSelector } from './timer-settings-selector/timer-settings-selector';
+import { LocalStorageService } from '../../../core/services/local_storage_service/local-storage-service';
 
 
 @Component({
@@ -14,6 +15,11 @@ import { TimerSettingsSelector } from './timer-settings-selector/timer-settings-
   styleUrl: './options-dashboard.scss'
 })
 export class OptionsDashboard {
+constructor(private localStorageService: LocalStorageService)
+{
+
+}
+
   public Buttons = [
     {
       name: "Backgrounds", 
@@ -29,6 +35,12 @@ export class OptionsDashboard {
     }
   ];
 
+  ngOnInit()
+  {
+    let currentOptionsCard : string | null = this.localStorageService.getItem("CurrentOptionsCard");
+    currentOptionsCard != null ? this.CurrentOptionsCard = currentOptionsCard : null ;
+  }
+
 
 
   public CurrentOptionsCard: string = "Backgrounds";
@@ -43,5 +55,6 @@ export class OptionsDashboard {
   menuButtonClicked(value: string)
   {
     this.CurrentOptionsCard = value;
+    this.localStorageService.setItem("CurrentOptionsCard", value);
   }
 }
