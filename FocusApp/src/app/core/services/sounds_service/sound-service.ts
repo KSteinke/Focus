@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ConfigService } from '../config_service/config-service';
 import { BehaviorSubject } from 'rxjs';
+import { LocalStorageService } from '../local_storage_service/local-storage-service';
 
 
 @Injectable({
@@ -30,13 +31,24 @@ export class SoundService {
     private globalMute = new BehaviorSubject<boolean>(true);
     public GlobalMute = this.globalMute.asObservable();
     
-    constructor(private configService: ConfigService)
+    constructor(private configService: ConfigService, private localStorageService : LocalStorageService)
     {
       let soundsConfig: SoundConfig[] = this.configService.soundServiceConfig.get("sounds");
       soundsConfig.forEach(soundConfig => {
 
         let audio: HTMLAudioElement = new Audio(soundConfig.Path);
-        audio.volume = 0.5;
+
+        let soundStored: Sound | null = this.localStorageService.getItem(soundConfig.Id);
+        let volume = 0.5;
+        if(soundStored != null)
+        {
+          audio.volume = soundStored.Volume * this.globalVolume;
+          volume = soundStored.Volume;
+        }
+        else
+        {
+          audio.volume = 0.5;
+        }
         audio.pause();
         audio.loop = true;
 
@@ -45,7 +57,7 @@ export class SoundService {
             Id: soundConfig.Id,
             Name: soundConfig.Name,
             Audio: audio,
-            Volume: audio.volume,
+            Volume: volume,
             IconPath: soundConfig.IconPath,
             IsPlaying: false,
           }
@@ -96,6 +108,7 @@ export class SoundService {
     {
       sound.Audio.volume = this.globalVolume * (volume / 100);
       sound.Volume = volume / 100;
+      this.localStorageService.setItem(sound.Id, sound);
     }
 }
 export interface SoundConfig
