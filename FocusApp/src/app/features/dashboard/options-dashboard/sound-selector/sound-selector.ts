@@ -49,7 +49,11 @@ export class SoundSelector {
 
   public saveSoundProfile()
   {
-    this.soundProfileService.SaveSoundProfile();
+    if(this.SoundProfiles.length <= 3)
+    {
+          this.soundProfileService.SaveSoundProfile();
+          this.cd.detectChanges();
+    }
   }
 }
 
