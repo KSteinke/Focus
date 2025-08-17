@@ -40,6 +40,7 @@ html, body {
     border: solid #DBE5DF;
     border-radius: 15px;
     transition: transform 0.15s ease-in-out;
+    display: inline-flex;
     
 
   &:hover {
@@ -76,13 +77,14 @@ html, body {
     background-color: #3F5E53;
     border: none;
     color: white;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     height: 36px;
     padding: 0;
     border: none;
     background: transparent;
+    white-space: nowrap;
     cursor: pointer;
 }
 

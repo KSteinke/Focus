@@ -10,6 +10,11 @@
                 <app-sound-element [Sound]="sound"></app-sound-element>
             </div>
         </div>
+        <div class="row align-items-center">
+            <div class="col-md-4 p-3">
+                <app-text-button (clickEvent)="resetSounds()" [TextButtonModel]="ResetSoundTextButtonModel"></app-text-button>
+            </div>
+        </div>
     </div>
 </div>
 

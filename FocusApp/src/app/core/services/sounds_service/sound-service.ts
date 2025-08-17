@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ConfigService } from '../config_service/config-service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { LocalStorageService } from '../local_storage_service/local-storage-service';
 
 
@@ -30,8 +30,16 @@ export class SoundService {
 
     private globalMute = new BehaviorSubject<boolean>(true);
     public GlobalMute = this.globalMute.asObservable();
+
+    private soundsVolumeChangedSubject = new Subject<void>();
+    public SoundsVolumeChanged = this.soundsVolumeChangedSubject.asObservable();
     
     constructor(private configService: ConfigService, private localStorageService : LocalStorageService)
+    {
+      this.FetchSoundsFromConfig();
+    }
+
+    private FetchSoundsFromConfig()
     {
       let soundsConfig: SoundConfig[] = this.configService.soundServiceConfig.get("sounds");
       soundsConfig.forEach(soundConfig => {
@@ -109,6 +117,25 @@ export class SoundService {
       sound.Audio.volume = this.globalVolume * (volume / 100);
       sound.Volume = volume / 100;
       this.localStorageService.setItem(sound.Id, sound);
+    }
+
+    public ResetSounds()
+    {
+      this.ClearLocalStorageSounds();
+      this.sounds.forEach( sound => {
+        sound.Audio.pause();
+        sound.Audio.volume = 0.5;
+        sound.IsPlaying = false;
+        sound.Volume = 0.5;
+      })
+      this.soundsVolumeChangedSubject.next();
+    }
+
+    private ClearLocalStorageSounds()
+    {
+      this.sounds.forEach(sound => {
+        this.localStorageService.removeItem(sound.Id);
+      });
     }
 }
 export interface SoundConfig
