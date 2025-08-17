@@ -137,6 +137,7 @@ export class SoundService {
         this.localStorageService.removeItem(sound.Id);
       });
     }
+
 }
 export interface SoundConfig
 {
@@ -155,3 +156,4 @@ export interface Sound
   IconPath: string,
   IsPlaying: boolean
 }
+
