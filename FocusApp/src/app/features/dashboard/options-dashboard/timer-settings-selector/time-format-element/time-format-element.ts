@@ -24,4 +24,5 @@ export interface TimeFormat
 {
   BackgroundImage : string;
   Id : string;
+  Label: string;
 }

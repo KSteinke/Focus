@@ -1,0 +1,15 @@
+<div class="col d-flex align-items-center gap-2">
+    <div class="text-white">
+        {{PomodoroTimerSetElementModel.Label}} 
+    </div>
+    <div class="input-wrapper">
+    <input type="number"
+       [(ngModel)]="value"
+       (ngModelChange)="onValueChange($event)"
+       (keyup.enter)="onConfirm()"
+       (blur)="onConfirm()"
+       min="1" max="60"
+       class="scrollable styled-input"/>
+    <span class="unit">min</span>
+    </div>
+</div> 

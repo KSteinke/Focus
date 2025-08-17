@@ -11,17 +11,25 @@
             </div>
         </div>
         <div class="row p-2 text-center text-white">
-            <div class="col-6 px-4">
+            <div class="col-md-6 px-4">
                 <app-time-format-element [TimeFormat]="TimeFormatElements[0]"></app-time-format-element>
-                <div class="m-2">
-                    12h
-                </div>
             </div>
-            <div class="col-6 px-4">
+            <div class="col-md-6 px-4">
                 <app-time-format-element [TimeFormat]="TimeFormatElements[1]"></app-time-format-element>
-                <div class="m-2">
-                    24h
-                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center pb-4 pt-4">
+                <h5>Pomodoro timer options</h5>
+            </div>
+        </div>
+        <div class="row p-2 text-center text-white">
+            <div class="col px-4">
+                <app-pomodoro-timer-set-element [PomodoroTimerSetElementModel] = "PomodoroTimerSetElements[0]"></app-pomodoro-timer-set-element>
+            </div>
+            <div class="col px-4">
+                <app-pomodoro-timer-set-element [PomodoroTimerSetElementModel] = "PomodoroTimerSetElements[1]"></app-pomodoro-timer-set-element>
             </div>
         </div>
     </div>

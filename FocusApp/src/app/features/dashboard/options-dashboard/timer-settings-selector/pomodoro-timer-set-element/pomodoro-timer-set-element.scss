@@ -1,0 +1,25 @@
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.styled-input {
+  width: 100px;
+  padding-right: 35px; /* miejsce na "min" */
+  text-align: center;   /* liczba po lewej, tekst po prawej */
+  font-size: 1.2rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+}
+
+.unit {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.7);
+  pointer-events: none; /* klik działa tylko na input */
+  font-size: 1rem;
+}
