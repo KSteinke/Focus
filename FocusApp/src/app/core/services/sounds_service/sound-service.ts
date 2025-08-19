@@ -13,11 +13,13 @@ export class SoundService {
     {
       return this.sounds;
     }
+    private tempGlobalVolume: number = 0.5;
     private globalVolume: number = 0.5;
 
     public set GlobalVolume(value: number)
     {
       this.globalVolume = value / 100;
+      this.tempGlobalVolume = this.globalVolume;
       this.sounds.forEach(sound => {
         sound.Audio.volume = sound.Volume * this.globalVolume;
       });
@@ -27,6 +29,9 @@ export class SoundService {
     {
       return this.globalVolume;
     }
+
+    private globalVolumeChangedSubject = new BehaviorSubject<number>(this.globalVolume);
+    public GloblaVolumeChanged = this.globalVolumeChangedSubject.asObservable();
 
     private globalMute = new BehaviorSubject<boolean>(true);
     public GlobalMute = this.globalMute.asObservable();
@@ -76,6 +81,7 @@ export class SoundService {
     public TogleSound(sound: Sound)
     {
       this.UnMuteAllSounds();
+
       if(sound.IsPlaying)
       {
         sound.Audio.pause();
@@ -94,22 +100,24 @@ export class SoundService {
 
     public MuteAllSounds()
     {
+      this.globalVolume = 0;
       this.sounds.forEach(sound => {
         sound.Audio.volume = 0;
       });
-
       this.globalMute.next(true);
+      this.globalVolumeChangedSubject.next(this.globalVolume);
     }
 
     public UnMuteAllSounds()
     {
+      this.globalVolume = this.tempGlobalVolume;
       this.sounds.forEach(sound => 
       {
         sound.Audio.volume = sound.Volume * this.globalVolume;
       }
       );
-
       this.globalMute.next(false);
+      this.globalVolumeChangedSubject.next(this.globalVolume);
     }
 
     public SetSoundVolume(sound: Sound, volume: number)
