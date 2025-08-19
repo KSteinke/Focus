@@ -5,12 +5,13 @@ import { BackgroundSelector } from './background-selector/background-selector';
 import { SoundSelector } from './sound-selector/sound-selector';
 import { TimerSettingsSelector } from './timer-settings-selector/timer-settings-selector';
 import { LocalStorageService } from '../../../core/services/local_storage_service/local-storage-service';
+import { ContactSelector } from './contact-selector/contact-selector';
 
 
 @Component({
   standalone: true,
   selector: 'app-options-dashboard',
-  imports: [OptionMenuButton, CommonModule, BackgroundSelector, SoundSelector, TimerSettingsSelector],
+  imports: [OptionMenuButton, CommonModule, BackgroundSelector, SoundSelector, TimerSettingsSelector, ContactSelector],
   templateUrl: './options-dashboard.html',
   styleUrl: './options-dashboard.scss'
 })
@@ -32,6 +33,10 @@ constructor(private localStorageService: LocalStorageService)
     {
       name: "Timer options",
       iconPath: "M320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64zM296 184L296 320C296 328 300 335.5 306.7 340L402.7 404C413.7 411.4 428.6 408.4 436 397.3C443.4 386.2 440.4 371.4 429.3 364L344 307.2L344 184C344 170.7 333.3 160 320 160C306.7 160 296 170.7 296 184z"
+    },
+    {
+      name: "Contact",
+      iconPath: "M376 32C504.1 32 608 135.9 608 264C608 277.3 597.3 288 584 288C570.7 288 560 277.3 560 264C560 162.4 477.6 80 376 80C362.7 80 352 69.3 352 56C352 42.7 362.7 32 376 32zM384 224C401.7 224 416 238.3 416 256C416 273.7 401.7 288 384 288C366.3 288 352 273.7 352 256C352 238.3 366.3 224 384 224zM352 152C352 138.7 362.7 128 376 128C451.1 128 512 188.9 512 264C512 277.3 501.3 288 488 288C474.7 288 464 277.3 464 264C464 215.4 424.6 176 376 176C362.7 176 352 165.3 352 152zM176.1 65.4C195.8 60 216.4 70.1 224.2 88.9L264.7 186.2C271.6 202.7 266.8 221.8 252.9 233.2L208.8 269.3C241.3 340.9 297.8 399.3 368.1 434.2L406.7 387C418 373.1 437.1 368.4 453.7 375.2L551 415.8C569.8 423.6 579.9 444.2 574.5 463.9L573 469.4C555.4 534.1 492.9 589.3 416.6 573.2C241.6 536.1 103.9 398.4 66.8 223.4C50.7 147.1 105.9 84.6 170.5 66.9L176 65.4z"
     }
   ];
 
