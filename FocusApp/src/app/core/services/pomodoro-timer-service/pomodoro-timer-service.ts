@@ -77,6 +77,7 @@ export class PomodoroTimerService {
       this.intervalId = setInterval(() => {
         if(this.seconds.value <= 0) {
           this.TogleTimerType();
+          this.soundService.PlayTimerSound();
         } else {
           this.seconds.next(this.seconds.value - 1);
         }

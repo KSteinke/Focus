@@ -145,16 +145,22 @@ export class SoundService {
         }
       })
       this.soundsVolumeChangedSubject.next();
-
+      this.globalMute.next(false);
     }
-
-    
 
     private ClearLocalStorageSounds()
     {
       this.sounds.forEach(sound => {
         this.localStorageService.removeItem(sound.Id);
       });
+    }
+
+    public PlayTimerSound()
+    {
+      let audio: HTMLAudioElement = new Audio("assets/sounds/bell.mp3");
+      audio.volume = this.GlobalVolume;
+      audio.loop = false;
+      audio.play();
     }
 
 }
