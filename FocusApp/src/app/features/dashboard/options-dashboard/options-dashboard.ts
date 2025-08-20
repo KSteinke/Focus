@@ -6,12 +6,13 @@ import { SoundSelector } from './sound-selector/sound-selector';
 import { TimerSettingsSelector } from './timer-settings-selector/timer-settings-selector';
 import { LocalStorageService } from '../../../core/services/local_storage_service/local-storage-service';
 import { ContactSelector } from './contact-selector/contact-selector';
+import { CloseButton } from '../../../common/buttons/close-button/close-button';
 
 
 @Component({
   standalone: true,
   selector: 'app-options-dashboard',
-  imports: [OptionMenuButton, CommonModule, BackgroundSelector, SoundSelector, TimerSettingsSelector, ContactSelector],
+  imports: [OptionMenuButton, CommonModule, BackgroundSelector, SoundSelector, TimerSettingsSelector, ContactSelector, CloseButton],
   templateUrl: './options-dashboard.html',
   styleUrl: './options-dashboard.scss'
 })
