@@ -52,6 +52,11 @@ export class SoundProfileService {
       }
     }
 
+    public RemoveSoundProfile()
+    {
+      
+    }
+
     public PlaySoundProfile(soundProfile: SoundProfile)
     {
       this.soundService.PlaySounds(soundProfile.Sounds);
