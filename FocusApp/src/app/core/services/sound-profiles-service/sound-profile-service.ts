@@ -19,7 +19,7 @@ export class SoundProfileService {
 
   private UpdateSoundProfileList()
   {
-    let savedSoundProfiles : SoundProfile[] | null = this.localStorageService.getItem(this.soundPorfileKeyword);
+    let savedSoundProfiles = this.GetStoredSoundProfiles();
     savedSoundProfiles != null ? this.soundProfileListSubject.next(savedSoundProfiles) : null;
   }
 
@@ -46,15 +46,37 @@ export class SoundProfileService {
 
         storedSoundsProfiles.push(newSoundProfile);
 
-        this.localStorageService.setItem(this.soundPorfileKeyword, storedSoundsProfiles);
-        this.UpdateSoundProfileList();
-
+        this.PushSoundProfilesToLocalStorage(storedSoundsProfiles);
       }
     }
-
-    public RemoveSoundProfile()
+    
+    private PushSoundProfilesToLocalStorage(newSoundProfiles : SoundProfile[])
     {
-      
+      this.localStorageService.setItem(this.soundPorfileKeyword, newSoundProfiles);
+      this.UpdateSoundProfileList();
+    }
+    
+    private GetStoredSoundProfiles() : SoundProfile[]
+    {
+      let savedSoundProfiles : SoundProfile[] | null = this.localStorageService.getItem(this.soundPorfileKeyword);
+      let result : SoundProfile[] = [];
+      savedSoundProfiles != null ? result = savedSoundProfiles : null;
+      return result;
+    }
+
+    public RemoveSoundProfile(soundProfile : SoundProfile)
+    {
+      let savedSoundProfiles = this.GetStoredSoundProfiles();
+      let newSavedSoundProfiles = savedSoundProfiles.filter(s => s.Id !== soundProfile.Id);
+      if(newSavedSoundProfiles)
+      {
+        let iterator : number = 1;
+        newSavedSoundProfiles.forEach(soundProfile => {
+          soundProfile.Id = iterator;
+          iterator++;
+        })
+        this.PushSoundProfilesToLocalStorage(newSavedSoundProfiles);
+      }
     }
 
     public PlaySoundProfile(soundProfile: SoundProfile)
