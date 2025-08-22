@@ -12,8 +12,12 @@ export class SetSoundProfileButton {
   @Input() SoundProfile!: SoundProfile;
 
   constructor(private soundProfileService: SoundProfileService) {}
- public ButtonClicked()
- {
-    this.soundProfileService.PlaySoundProfile(this.SoundProfile);
- }
+  public ButtonClicked()
+  {
+      this.soundProfileService.PlaySoundProfile(this.SoundProfile);
+  }
+  public RemoveSoundProfile()
+  {
+    this.soundProfileService.RemoveSoundProfile(this.SoundProfile);
+  }
 }
