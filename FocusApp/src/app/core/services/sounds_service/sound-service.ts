@@ -149,6 +149,7 @@ export class SoundService {
           matchSound.IsPlaying = sound.IsPlaying;
           matchSound.Volume = sound.Volume;
           matchSound.Audio.volume = sound.Volume * this.globalVolume;
+          matchSound.Audio.loop = true;
           matchSound.Audio.play();
         }
       })
