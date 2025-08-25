@@ -50,6 +50,7 @@ export class SoundService {
       soundsConfig.forEach(soundConfig => {
 
         let audio: HTMLAudioElement = new Audio(soundConfig.Path);
+        audio.preload = 'none';
 
         let soundStored: Sound | null = this.localStorageService.getItem(soundConfig.Id);
         let volume = 0.5;
