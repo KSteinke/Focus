@@ -35,7 +35,7 @@ jobs:
       # 5. Build Angular app
       - name: Build Angular app
         working-directory: FocusApp
-        run: npx ng build --configuration production --base-href "/Focus/browser"
+        run: npx ng build --configuration production --base-href "/Focus/"
 
       # 6. Show build output for debugging
       - name: List build output
@@ -44,6 +44,6 @@ jobs:
 
       # 7. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=FocusApp/dist/FocusApp
+        run: npx angular-cli-ghpages --dir=dist/FocusApp/browser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
