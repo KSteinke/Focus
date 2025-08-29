@@ -1,0 +1,35 @@
+name: Deploy Angular to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master   # wyzwalacz: push/merge do master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repozytorium
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # 3. Install dependencies
+      - name: Install npm dependencies
+        run: npm ci
+
+      # 4. Build Angular w trybie production
+      - name: Build Angular app
+        run: ng build --configuration production --base-href "/Focus/"
+
+      # 5. Deploy na GitHub Pages
+      - name: Deploy to GitHub Pages
+        run: npx angular-cli-ghpages --dir=dist/FocusApp/browser
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
