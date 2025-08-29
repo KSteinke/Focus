@@ -3,7 +3,7 @@ name: Deploy Angular to GitHub Pages
 on:
   push:
     branches:
-      - main   # wyzwalacz: push/merge do master
+      - main   # uruchamia workflow przy push/merge do main
 
 jobs:
   build-and-deploy:
@@ -20,21 +20,30 @@ jobs:
         with:
           node-version: 20
 
-      # 3. Install dependencies
-      - name: Install dependencies
+      # 3. Cache npm dependencies
+      - name: Cache npm
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('FocusApp/package-lock.json') }}
+
+      # 4. Install npm dependencies
+      - name: Install npm dependencies
         working-directory: FocusApp
         run: npm ci
-      # 4. Install Angular CLI explicite
-      - name: Install Angular CLI globally
-        run: npm install -g @angular/cli
-      
+
       # 5. Build Angular app
       - name: Build Angular app
         working-directory: FocusApp
-        run: ng build --configuration production --base-href "/Focus/"
+        run: npx ng build --configuration production --base-href "/Focus/"
 
-      # 6. Deploy na GitHub Pages
+      # 6. Show build output for debugging
+      - name: List build output
+        working-directory: FocusApp
+        run: ls -R dist
+
+      # 7. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/FocusApp/browser
+        run: npx angular-cli-ghpages --dir=FocusApp/dist/FocusApp
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
