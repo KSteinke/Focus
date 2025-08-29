@@ -26,6 +26,7 @@ jobs:
       
       # 4. Build Angular app
       - name: Build Angular app
+        working-directory: FocusApp
         run: ng build --configuration production --base-href "/Focus/"
 
       # 5. Deploy na GitHub Pages
