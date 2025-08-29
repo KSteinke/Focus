@@ -40,12 +40,17 @@ jobs:
         working-directory: FocusApp
         run: npx ng build --configuration production --base-href "/Focus/"
 
-      # 6. Show build output for debugging
+      # 6. Copy index data to 404 to enables routing
+      - name: Copy index.html to 404.html
+        working-directory: FocusApp/dist/FocusApp/browser
+        run: cp index.html 404.html
+
+      # 7. Show build output for debugging
       - name: List build output
         working-directory: FocusApp
         run: ls -R dist
 
-      # 7. Deploy to GitHub Pages
+      # 8. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
