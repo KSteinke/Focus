@@ -44,7 +44,8 @@ jobs:
 
       # 7. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        working-directory: FocusApp
-        run: npx angular-cli-ghpages --dir=dist/FocusApp/browser
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v7
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: FocusApp/dist/FocusApp/browser
+          publish_branch: gh-pages
