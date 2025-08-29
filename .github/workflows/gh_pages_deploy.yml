@@ -21,15 +21,19 @@ jobs:
           node-version: 20
 
       # 3. Install dependencies
+      - name: Install dependencies
+        working-directory: FocusApp
+        run: npm ci
+      # 4. Install Angular CLI explicite
       - name: Install Angular CLI globally
         run: npm install -g @angular/cli
       
-      # 4. Build Angular app
+      # 5. Build Angular app
       - name: Build Angular app
         working-directory: FocusApp
         run: ng build --configuration production --base-href "/Focus/"
 
-      # 5. Deploy na GitHub Pages
+      # 6. Deploy na GitHub Pages
       - name: Deploy to GitHub Pages
         run: npx angular-cli-ghpages --dir=dist/FocusApp/browser
         env:
