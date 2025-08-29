@@ -21,12 +21,12 @@ jobs:
           node-version: 20
 
       # 3. Install dependencies
-      - name: Install npm dependencies
-        run: npm ci
-
-      # 4. Build Angular w trybie production
+      - name: Install Angular CLI globally
+        run: npm install -g @angular/cli
+      
+      # 4. Build Angular app
       - name: Build Angular app
-        run: npx ng build --configuration production --base-href "/Focus/"
+        run: ng build --configuration production --base-href "/Focus/"
 
       # 5. Deploy na GitHub Pages
       - name: Deploy to GitHub Pages
