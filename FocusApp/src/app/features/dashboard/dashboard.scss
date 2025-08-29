@@ -51,3 +51,14 @@
   }
 }
 
+.background-container {
+  height: 100vh;                  /* dokładnie wysokość widocznego ekranu */
+  width: 100vw; 
+  background-size: cover;        /* dopasuj tło, przytnij nadmiar */
+  background-position: center;   /* wyśrodkuj obraz */
+  background-repeat: no-repeat;  /* nie powtarzaj */
+  overflow: hidden;              /* zapobiega scrollowi */
+  position: fixed;
+}
+
+
