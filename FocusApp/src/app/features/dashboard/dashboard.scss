@@ -1,0 +1,64 @@
+.heart {
+  color: red;        /* inny kolor, np. czerwony */
+  margin-left: 4px;  /* odstęp z lewej */
+  font-size: 1.2em;  /* opcjonalnie większe serduszko */
+  vertical-align: middle; /* wyrównanie w pionie */
+}
+
+.text{
+    font-family: 'Inter', sans-serif; // używasz zaimportowanego fontu
+    font-size: 24px;                  // rozmiar tekstu w pikselach
+    font-weight: bold;                // lub 700 (np. font-weight: 700;)
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  
+
+    @media (min-width: 576px) {
+    font-size: 28px;  // średni ekran (sm)
+    }
+
+    @media (min-width: 768px) {
+    font-size: 32px;  // większy ekran (md)
+    }
+
+    @media (min-width: 992px) {
+    font-size: 36px;  // duży ekran (lg)
+    }
+}
+
+.text-white{
+    color: white;
+}
+
+.sign{
+    font-family: 'Inter', sans-serif; // używasz zaimportowanego fontu
+    font-size: 16px;                  // rozmiar tekstu w pikselach
+    font-weight: bold;                // lub 700 (np. font-weight: 700;)
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    @media (min-width: 576px) {
+    font-size: 20px;  // średni ekran (sm)
+    }  
+}
+
+.buyMeCoffee{
+    transform-origin: left bottom;
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+        
+    }
+    &:active {
+    transform: scale(0.95); /* lekko wciśnięty */
+  }
+}
+
+.background-container {
+  height: 100vh;                  /* dokładnie wysokość widocznego ekranu */
+  width: 100vw; 
+  background-size: cover;        /* dopasuj tło, przytnij nadmiar */
+  background-position: center;   /* wyśrodkuj obraz */
+  background-repeat: no-repeat;  /* nie powtarzaj */
+  overflow: hidden;              /* zapobiega scrollowi */
+  position: fixed;
+}
+
+

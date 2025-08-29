@@ -1,0 +1,19 @@
+.quote{
+    font-family: 'Inter', sans-serif; // używasz zaimportowanego fontu
+    font-size: 24px;                  // rozmiar tekstu w pikselach
+    font-weight: bold;                // lub 700 (np. font-weight: 700;)
+    color: white;                     // biały kolor tekstu
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  
+
+    @media (min-width: 576px) {
+    font-size: 28px;  // średni ekran (sm)
+    }
+
+    @media (min-width: 768px) {
+    font-size: 32px;  // większy ekran (md)
+    }
+
+    @media (min-width: 992px) {
+    font-size: 36px;  // duży ekran (lg)
+    }
+}

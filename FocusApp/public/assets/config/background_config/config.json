@@ -1,0 +1,23 @@
+{
+    "backgrounds":{
+        "static": [
+            {
+                "name": "Cyber City",
+                "path": "assets/backgrounds/static/Cyberpunk_City.png"
+            },
+            {
+                "name": "Fuji",
+                "path": "assets/backgrounds/static/Fuji.png"
+            },
+            {
+                "name": "Autumn Trees",
+                "path": "assets/backgrounds/static/Tree.png"
+            },
+            {
+                "name": "Winter Cabin",
+                "path": "assets/backgrounds/static/WinterCabin.png"
+            }
+        ],
+        "animated": []
+    }
+}

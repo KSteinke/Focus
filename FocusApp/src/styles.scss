@@ -1,0 +1,151 @@
+/* You can add global styles to this file, and also import other style files */
+/* Zresetuj domyślne marginesy i padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  
+}
+
+
+.sqare-top-button{
+    background-color: #3F5E53;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: solid #DBE5DF;
+    border-radius: 15px;
+    transition: transform 0.15s ease-in-out;
+    max-width: 50px;
+
+  &:hover {
+    transform: scale(1.1); // powiększa o 10%
+    background-color: #556d62;
+    cursor: pointer;
+  }
+
+   &:active {
+    transform: scale(0.95); /* lekko wciśnięty */
+    background-color: #2f4b42; /* ciemniejszy odcień */
+  }
+}
+
+.rectangle-top-button{
+    background-color: #3F5E53;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: solid #DBE5DF;
+    border-radius: 15px;
+    transition: transform 0.15s ease-in-out;
+    display: inline-flex;
+    
+
+  &:hover {
+    transform: scale(1.1); // powiększa o 10%
+    background-color: #556d62;
+    cursor: pointer;
+  }
+
+   &:active {
+    transform: scale(0.95); /* lekko wciśnięty */
+    background-color: #2f4b42; /* ciemniejszy odcień */
+  }
+  
+}
+
+.sqare-inside-button{
+    background-color: #3F5E53;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.rectangle-inside-button{
+    background-color: #3F5E53;
+    border: none;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+
+//Scrollable
+/* Chrome, Edge, Safari */
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Firefox */
+.scrollable {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.3) rgba(255,255,255,0.05);
+}
+
+.ratio img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.sounds-selector-button{
+  width: 200px;
+}
+
+
+.options-selector{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 60vh;
+
+  @media (min-width: 576px) {
+      max-height: 60vh;
+  }
+
+  @media (min-width: 768px) {
+      max-height: 70vh;
+  }
+
+  @media (min-width: 992px) {
+      max-height: 80vh;
+  }
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

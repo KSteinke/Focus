@@ -1,0 +1,26 @@
+.option-menu-button{
+     &:hover {
+    transform: scale(1.05); // powiększa o 10%
+    background-color: #556d62;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.95); /* lekko wciśnięty */
+    background-color: #2f4b42; /* ciemniejszy odcień */
+  }
+}
+
+.option-menu-button-text{
+    font-family: 'Inter', sans-serif; // używasz zaimportowanego fontu
+    font-size: 14px;                  // rozmiar tekstu w pikselach
+    font-weight: bold;                // lub 700 (np. font-weight: 700;)
+    @media (min-width: 576px) {
+    font-size: 20px;  // średni ekran (sm)
+    }  
+}
+
+.options-menu-button-current-selected{
+  background-color: #2f4b42; /* ciemniejszy odcień */
+
+}

@@ -1,0 +1,32 @@
+<div class="container text-white">
+    <div class="row">
+        <div class="col text-center pb-2">
+            <h3>Mix your favorite sounds!</h3>
+        </div>
+    </div>
+    <div class="options-selector scrollable px-2">
+        <div class="row ">
+            <div class="col-md-6 col-lg-4 col-xl-3 p-3" *ngFor="let sound of Sounds">
+                <app-sound-element [Sound]="sound"></app-sound-element>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col p-3">
+                <div class=" sounds-selector-button">
+                <app-text-button (clickEvent)="resetSounds()" [TextButtonModel]="ResetSoundTextButtonModel"></app-text-button>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center" *ngFor="let soundProfile of SoundProfiles">
+            <div class="col p-3">
+                <app-set-sound-profile-button [SoundProfile] = "soundProfile"></app-set-sound-profile-button>
+            </div>
+        </div>
+         <div class="row align-items-center" *ngIf="SoundProfiles.length < 3">
+            <div class="col p-3">
+                <app-add-sound-profile-button (clickEvent)="saveSoundProfile()" ></app-add-sound-profile-button>
+            </div>
+        </div>
+    </div>
+</div>
+

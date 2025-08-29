@@ -1,0 +1,37 @@
+<div class="container text-white">
+    <div class="row">
+        <div class="col text-center pb-2">
+            <h3>Adjust clock and timer settings!</h3>
+        </div>
+    </div>
+    <div class="options-selector scrollable px-2">
+        <div class="row">
+            <div class="col text-center pb-4 pt-4">
+                <h5>Clock options</h5>
+            </div>
+        </div>
+        <div class="row p-2 text-center text-white">
+            <div class="col-md-6 px-4">
+                <app-time-format-element [TimeFormat]="TimeFormatElements[0]"></app-time-format-element>
+            </div>
+            <div class="col-md-6 px-4">
+                <app-time-format-element [TimeFormat]="TimeFormatElements[1]"></app-time-format-element>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center pb-4 pt-4">
+                <h5>Pomodoro timer options</h5>
+            </div>
+        </div>
+        <div class="row p-2 text-center text-white">
+            <div class="col px-4">
+                <app-pomodoro-timer-set-element [PomodoroTimerSetElementModel] = "PomodoroTimerSetElements[0]"></app-pomodoro-timer-set-element>
+            </div>
+            <div class="col px-4">
+                <app-pomodoro-timer-set-element [PomodoroTimerSetElementModel] = "PomodoroTimerSetElements[1]"></app-pomodoro-timer-set-element>
+            </div>
+        </div>
+    </div>
+</div>
+

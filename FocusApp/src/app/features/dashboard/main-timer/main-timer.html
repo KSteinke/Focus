@@ -1,0 +1,8 @@
+<div class="main-timer">
+  <ng-container *ngIf="is24Hour; else format12">
+    {{ now | date: 'H:mm' }}
+  </ng-container>
+  <ng-template #format12>
+    {{ now | date: 'h:mm' }}<span class="ampm">{{ now | date: 'a' }}</span>
+  </ng-template>
+</div>

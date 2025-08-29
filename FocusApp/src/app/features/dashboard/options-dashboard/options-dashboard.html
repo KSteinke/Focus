@@ -1,0 +1,25 @@
+<div class="option-dashboard-side h-100" (click)="closeOptionsDashboard()">
+
+</div>
+<div class="options-dashboard-overlay">
+    <div class="container h-100">
+        <div class="row justify-content-start">
+            <div class="col p-4">
+                <app-close-button (clickEvent)="closeOptionsDashboard()"></app-close-button>
+            </div>
+        </div>
+        <div class="row h-100">
+            <div class=" col-5 col-sm-6 col-md-6 col-lg-4 col-xl-3 text-white gap-3 options-dashboard-menu">
+                <div class="row" *ngFor="let button of Buttons">
+                    <app-option-menu-button [Name]="button.name" [IconPath]="button.iconPath" (clickEvent)="menuButtonClicked($event)" [selected]="CurrentOptionsCard === button.name"></app-option-menu-button>
+                </div>
+            </div>
+            <div class="col">
+                <app-background-selector *ngIf="CurrentOptionsCard === 'Backgrounds'"></app-background-selector>
+                <app-sound-selector *ngIf="CurrentOptionsCard === 'Sounds'"></app-sound-selector>
+                <app-timer-settings-selector *ngIf="CurrentOptionsCard === 'Timer options'"></app-timer-settings-selector>
+                <app-contact-selector *ngIf="CurrentOptionsCard === 'Contact'"></app-contact-selector>
+            </div>
+        </div>
+    </div>
+</div>

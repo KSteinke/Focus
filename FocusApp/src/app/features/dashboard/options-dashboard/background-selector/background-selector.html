@@ -1,0 +1,56 @@
+<div class="container text-white">
+    <div class="row">
+        <div class="col text-center pb-2">
+            <h3>Select your background image!</h3>
+        </div>
+    </div>
+    <div class="options-selector scrollable px-2">
+        <div class="row">
+            <div class="col text-center pb-4 pt-4">
+                <h5>Static backgrounds</h5>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-lg-6 col-xl-4 p-3" *ngFor="let bg of StaticBackgrounds">
+                <app-background-preview-element [background]="bg"></app-background-preview-element>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col text-center pb-4 pt-4">
+                <h5>Animated backgrounds</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-xl-4 p-3">
+                <app-background-preview-element></app-background-preview-element>
+            </div>
+            <div class="col-lg-6 col-xl-4 p-3">
+                <app-background-preview-element></app-background-preview-element>
+            </div>
+            <div class="col-lg-6 col-xl-4 p-3">
+                <app-background-preview-element></app-background-preview-element>
+            </div>
+            <div class="col-lg-6 col-xl-4 p-3">
+                <app-background-preview-element></app-background-preview-element>
+            </div>
+            <div class="col-lg-6 col-xl-4 p-3">
+                <app-background-preview-element></app-background-preview-element>
+            </div>
+            <div class="col-lg-6 col-xl-4 p-3">
+                <app-background-preview-element></app-background-preview-element>
+            </div>
+            <div class="col-lg-6 col-xl-4 p-3">
+                <app-background-preview-element></app-background-preview-element>
+            </div>
+            <div class="col-lg-6 col-xl-4 p-3">
+                <app-background-preview-element></app-background-preview-element>
+            </div>
+            <div class="col-lg-6 col-xl-4 p-3">
+                <app-background-preview-element></app-background-preview-element>
+            </div>
+        </div>
+    </div>
+</div>
+
