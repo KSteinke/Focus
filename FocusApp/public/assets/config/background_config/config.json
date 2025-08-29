@@ -2,21 +2,42 @@
     "backgrounds":{
         "static": [
             {
-                "name": "Cyber City",
-                "path": "assets/backgrounds/static/Cyberpunk_City.png"
+                "name": "Colors",
+                "path": "assets/backgrounds/static/Colors.png"
+            },
+            {
+                "name": "Space",
+                "path": "assets/backgrounds/static/Space.png"
             },
             {
                 "name": "Fuji",
                 "path": "assets/backgrounds/static/Fuji.png"
             },
             {
+                "name": "Winter Cabin",
+                "path": "assets/backgrounds/static/WinterCabin.png"
+            },
+            {
+                "name": "British Moorland",
+                "path": "assets/backgrounds/static/BritishMoorland.png"
+            },
+            {
+                "name": "Forest",
+                "path": "assets/backgrounds/static/Forest.png"
+            },
+            {
                 "name": "Autumn Trees",
                 "path": "assets/backgrounds/static/Tree.png"
             },
             {
-                "name": "Winter Cabin",
-                "path": "assets/backgrounds/static/WinterCabin.png"
+                "name": "Cyber City",
+                "path": "assets/backgrounds/static/Cyberpunk_City.png"
+            },
+            {
+                "name": "Night City",
+                "path": "assets/backgrounds/static/NightCity.png"
             }
+            
         ],
         "animated": []
     }
