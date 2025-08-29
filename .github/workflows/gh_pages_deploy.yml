@@ -26,7 +26,7 @@ jobs:
 
       # 4. Build Angular w trybie production
       - name: Build Angular app
-        run: ng build --configuration production --base-href "/Focus/"
+        run: npx ng build --configuration production --base-href "/Focus/"
 
       # 5. Deploy na GitHub Pages
       - name: Deploy to GitHub Pages
