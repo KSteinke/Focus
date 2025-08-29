@@ -44,6 +44,6 @@ jobs:
 
       # 7. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/FocusApp/browser
+        run: npx angular-cli-ghpages --dir=/home/runner/work/Focus/Focus/FocusApp/dist/FocusApp/browser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
