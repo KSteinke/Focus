@@ -35,7 +35,7 @@ jobs:
       # 5. Build Angular app
       - name: Build Angular app
         working-directory: FocusApp
-        run: npx ng build --configuration production --base-href "/Focus/"
+        run: npx ng build --configuration production --base-href "/Focus/browser"
 
       # 6. Show build output for debugging
       - name: List build output
