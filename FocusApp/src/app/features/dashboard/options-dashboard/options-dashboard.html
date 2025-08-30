@@ -8,9 +8,9 @@
                 <app-close-button (clickEvent)="closeOptionsDashboard()"></app-close-button>
             </div>
         </div>
-        <div class="row h-100">
-            <div class=" col-5 col-sm-6 col-md-6 col-lg-4 col-xl-3 text-white gap-3 options-dashboard-menu">
-                <div class="row" *ngFor="let button of Buttons">
+        <div class="row flex-nowrap h-100">
+            <div class="col-3 col-sm-2 col-md-2 col-lg-3 col-xl-4 col-xxl-3 text-white gap-3 options-dashboard-menu">
+                <div class="row d-flex justify-menu-buttons" *ngFor="let button of Buttons">
                     <app-option-menu-button [Name]="button.name" [IconPath]="button.iconPath" (clickEvent)="menuButtonClicked($event)" [selected]="CurrentOptionsCard === button.name"></app-option-menu-button>
                 </div>
             </div>

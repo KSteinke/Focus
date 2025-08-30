@@ -23,11 +23,14 @@
 
 input[type="range"] {
   -webkit-appearance: none; /* usuwa domyślny styl WebKit */
-  width: 100%;
+  max-width: 50%;
   height: 6px;
   background: white; /* kolor tła track */
   border-radius: 3px;
   outline: none;
+  @media (min-width: 576px) {
+    max-width: 100%;
+    }  
 }
 
 /* Track (pasek) dla Chrome, Safari, Edge */

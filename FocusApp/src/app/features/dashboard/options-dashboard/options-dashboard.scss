@@ -12,7 +12,7 @@
   background-color: rgba(0, 0, 0, 0.98); /* lub dowolne inne tło */
   z-index: 1000;
   overflow: hidden; /* jeśli potrzebujesz scrolla */
-    @media (min-width: 768px) {
+    @media (min-width: 1200px) {
       right: 0;
       width: 50vw;
       left: auto;
@@ -30,7 +30,7 @@
     cursor: pointer;
   }
 
-  @media (min-width: 768px)
+  @media (min-width: 1200px)
   {
     width: 50vw;
   }
