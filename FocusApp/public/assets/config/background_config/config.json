@@ -38,6 +38,10 @@
                 "path": "assets/backgrounds/static/Tree2.png"
             },
             {
+                "name": "Dunes",
+                "path": "assets/backgrounds/static/Dunes.png"
+            },
+            {
                 "name": "Cyber City",
                 "path": "assets/backgrounds/static/Cyberpunk_City.png"
             },
