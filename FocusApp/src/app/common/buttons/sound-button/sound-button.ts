@@ -12,7 +12,7 @@ import { SoundService } from '../../../core/services/sounds_service/sound-servic
 })
 export class SoundButton {
 
-    constructor(private soundService: SoundService){
+    constructor(public soundService: SoundService){
       
   }
 

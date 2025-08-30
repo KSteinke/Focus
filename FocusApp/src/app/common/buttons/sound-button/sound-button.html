@@ -8,5 +8,5 @@
     </svg>
   </button>
 
-  <input type="range" min="0" max="100" [(ngModel)]="volume" class="form-range w-100 range">
+  <input type="range" min="0" max="100" [(ngModel)]="volume" [disabled]="!soundService.IsAnySoundPlaying()" class="form-range w-100 range">
 </div>
