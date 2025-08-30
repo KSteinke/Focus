@@ -59,16 +59,16 @@ export class SoundButton {
 
 
 
-  onSliderClick() {
-    if (!this.soundService.IsAnySoundPlaying()) {
-      console.log('click');
-      this.showTooltip = true;
+tooltipTimeout: any;
 
-      // schowaj tooltip po 3 sekundach
-      setTimeout(() => {
-        this.showTooltip = false;
-        this.cd.detectChanges();
-      }, 3000);
-    }
+onSliderClick() {
+  if (!this.soundService.IsAnySoundPlaying() && !this.showTooltip) {
+    this.showTooltip = true;
+
+    this.tooltipTimeout = setTimeout(() => {
+      this.showTooltip = false;
+      this.cd.detectChanges();
+    }, 3000);
   }
+}
 }

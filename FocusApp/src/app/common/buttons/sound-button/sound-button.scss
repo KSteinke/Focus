@@ -114,9 +114,16 @@ input[type="range"]::-moz-range-thumb {
   white-space: nowrap;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   animation: fadeIn 0.3s ease;
+  opacity: 1.0;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translate(-50%, -10px); }
   to   { opacity: 1; transform: translate(-50%, 0); }
 }
+
+.disabled-sound {
+  opacity: 0.6;           /* przyciemnienie */
+  transform: scale(0.95);
+}
+
