@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EventEmitter, Output } from '@angular/core';
 import { SoundService } from '../../../core/services/sounds_service/sound-service';
@@ -12,7 +12,7 @@ import { SoundService } from '../../../core/services/sounds_service/sound-servic
 })
 export class SoundButton {
 
-    constructor(public soundService: SoundService){
+    constructor(public soundService: SoundService, private cd: ChangeDetectorRef){
       
   }
 
@@ -29,6 +29,7 @@ export class SoundButton {
   }
 
   isMuted = true;
+  showTooltip = false;
 
   private _volume = 50;
 
@@ -53,6 +54,21 @@ export class SoundButton {
       this.soundService.UnMuteAllSounds();
     } else {
       this.soundService.MuteAllSounds();
+    }
+  }
+
+
+
+  onSliderClick() {
+    if (!this.soundService.IsAnySoundPlaying()) {
+      console.log('click');
+      this.showTooltip = true;
+
+      // schowaj tooltip po 3 sekundach
+      setTimeout(() => {
+        this.showTooltip = false;
+        this.cd.detectChanges();
+      }, 3000);
     }
   }
 }

@@ -95,3 +95,28 @@ input[type="range"]::-moz-range-thumb {
     background-color: rgba(145, 71, 255, 1);
   }
 }
+
+
+.slider-wrapper {
+  display: block;
+}
+
+.tooltip-box {
+  position: absolute;
+  top: -65px; /* nad suwakiem */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(145, 71, 255, 0.6);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -10px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
