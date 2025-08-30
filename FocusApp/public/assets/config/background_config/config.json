@@ -3,51 +3,51 @@
         "static": [
             {
                 "name": "Colors",
-                "path": "assets/backgrounds/static/Colors1.png"
+                "path": "assets/backgrounds/static/Colors1.webp"
             },
             {
                 "name": "Colors",
-                "path": "assets/backgrounds/static/Colors2.png"
+                "path": "assets/backgrounds/static/Colors2.webp"
             },
             {
                 "name": "Colors",
-                "path": "assets/backgrounds/static/Colors3.png"
+                "path": "assets/backgrounds/static/Colors3.webp"
             },
             {
                 "name": "Space",
-                "path": "assets/backgrounds/static/Space.png"
+                "path": "assets/backgrounds/static/Space.webp"
             },
             {
                 "name": "Fuji",
-                "path": "assets/backgrounds/static/Fuji.png"
+                "path": "assets/backgrounds/static/Fuji.webp"
             },
             {
                 "name": "Winter Cabin",
-                "path": "assets/backgrounds/static/WinterCabin.png"
+                "path": "assets/backgrounds/static/WinterCabin.webp"
             },
             {
                 "name": "British Moorland",
-                "path": "assets/backgrounds/static/BritishMoorland.png"
+                "path": "assets/backgrounds/static/BritishMoorland.webp"
             },
             {
                 "name": "Forest",
-                "path": "assets/backgrounds/static/Forest.png"
+                "path": "assets/backgrounds/static/Forest.webp"
             },
             {
                 "name": "Autumn Trees",
-                "path": "assets/backgrounds/static/Tree.png"
+                "path": "assets/backgrounds/static/Tree.webp"
             },
             {
                 "name": "Dunes",
-                "path": "assets/backgrounds/static/Dunes.png"
+                "path": "assets/backgrounds/static/Dunes.webp"
             },
             {
                 "name": "Cyber City",
-                "path": "assets/backgrounds/static/Cyberpunk_City.png"
+                "path": "assets/backgrounds/static/Cyberpunk_City.webp"
             },
             {
                 "name": "Night City",
-                "path": "assets/backgrounds/static/NightCity.png"
+                "path": "assets/backgrounds/static/NightCity.webp"
             }
             
         ],
