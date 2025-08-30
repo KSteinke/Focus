@@ -2,85 +2,126 @@
     "refreshInterval": 60000,
     "quotes": [
                 {
-                    "text": "Najlepszy czas na działanie jest teraz.",
-                    "author": "Mark Fisher"
-                },
-                {
-                    "text": "Nie musisz być wielki, by zacząć. Ale musisz zacząć, by być wielki.",
-                    "author": "Zig Ziglar"
-                },
-                {
-                    "text": "Każda porażka to krok do sukcesu.",
-                    "author": "Thomas Edison"
-                },
-                {
-                    "text": "Nigdy nie rezygnuj z celu tylko dlatego, że osiągnięcie go wymaga czasu. Czas i tak upłynie.",
-                    "author": "Earl Nightingale"
-                },
-                {
-                    "text": "Rób, co możesz, tym co masz, tam gdzie jesteś.",
-                    "author": "Theodore Roosevelt"
-                },
-                {
-                    "text": "Największą przeszkodą w osiągnięciu sukcesu jest lęk przed porażką.",
-                    "author": "Sven Goran Eriksson"
-                },
-                {
-                    "text": "Sukces to suma niewielkich wysiłków, powtarzanych każdego dnia.",
-                    "author": "Robert Collier"
-                },
-                {
-                    "text": "Nie czekaj na okazję. Stwórz ją.",
-                    "author": "George Bernard Shaw"
-                },
-                {
-                    "text": "Jeśli potrafisz o czymś marzyć, potrafisz też tego dokonać.",
+                    "text": "The best way to get started is to quit talking and begin doing.",
                     "author": "Walt Disney"
                 },
                 {
-                    "text": "Twoje życie staje się lepsze tylko, gdy Ty stajesz się lepszy.",
-                    "author": "Brian Tracy"
+                    "text": "Success is not final, failure is not fatal, it is the courage to continue that counts.",
+                    "author": "Winston Churchill"
                 },
                 {
-                    "text": "Nie musisz widzieć całych schodów. Po prostu zrób pierwszy krok.",
-                    "author": "Martin Luther King Jr."
+                    "text": "Don’t let yesterday take up too much of today.",
+                    "author": "Will Rogers"
                 },
                 {
-                    "text": "Nie bój się powoli iść naprzód. Bój się tylko stania w miejscu.",
-                    "author": "chińskie przysłowie"
+                    "text": "If you are working on something exciting, it will keep you motivated.",
+                    "author": "Steve Jobs"
                 },
                 {
-                    "text": "Odważ się być wielki.",
-                    "author": "Horacy"
+                    "text": "Opportunities don't happen, you create them.",
+                    "author": "Chris Grosser"
                 },
                 {
-                    "text": "Dopóki walczysz, jesteś zwycięzcą.",
-                    "author": "św. Augustyn"
+                    "text": "Don’t be pushed around by the fears in your mind. Be led by the dreams in your heart.",
+                    "author": "Roy T. Bennett"
                 },
                 {
-                    "text": "Twój sukces zależy od codziennych nawyków, nie od szczęścia.",
-                    "author": "John C. Maxwell"
+                    "text": "It always seems impossible until it’s done.",
+                    "author": "Nelson Mandela"
                 },
                 {
-                    "text": "Im ciężej pracujesz, tym większe masz szczęście.",
-                    "author": "Gary Player"
+                    "text": "The secret of getting ahead is getting started.",
+                    "author": "Mark Twain"
                 },
                 {
-                    "text": "Nie porównuj się z innymi. Porównuj się z sobą z wczoraj.",
-                    "author": "Jordan Peterson"
+                    "text": "You are never too old to set another goal or to dream a new dream.",
+                    "author": "C.S. Lewis"
                 },
                 {
-                    "text": "Pamiętaj, dlaczego zacząłeś.",
-                    "author": "anonimowy"
+                    "text": "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+                    "author": "Zig Ziglar"
                 },
                 {
-                    "text": "Bądź zmianą, którą chcesz zobaczyć w świecie.",
+                    "text": "Do what you can, with what you have, where you are.",
+                    "author": "Theodore Roosevelt"
+                },
+                {
+                    "text": "I find that the harder I work, the more luck I seem to have.",
+                    "author": "Thomas Jefferson"
+                },
+                {
+                    "text": "Quality is not an act, it is a habit.",
+                    "author": "Aristotle"
+                },
+                {
+                    "text": "Happiness is not something ready-made. It comes from your own actions.",
+                    "author": "Dalai Lama"
+                },
+                {
+                    "text": "Whether you think you can or think you can’t, you’re right.",
+                    "author": "Henry Ford"
+                },
+                {
+                    "text": "In the middle of every difficulty lies opportunity.",
+                    "author": "Albert Einstein"
+                },
+                {
+                    "text": "Act as if what you do makes a difference. It does.",
+                    "author": "William James"
+                },
+                {
+                    "text": "The only limit to our realization of tomorrow is our doubts of today.",
+                    "author": "Franklin D. Roosevelt"
+                },
+                {
+                    "text": "Dwell on the beauty of life. Watch the stars, and see yourself running with them.",
+                    "author": "Marcus Aurelius"
+                },
+                {
+                    "text": "Everything you can imagine is real.",
+                    "author": "Pablo Picasso"
+                },
+                {
+                    "text": "Hardships often prepare ordinary people for an extraordinary destiny.",
+                    "author": "C.S. Lewis"
+                },
+                {
+                    "text": "A person who never made a mistake never tried anything new.",
+                    "author": "Albert Einstein"
+                },
+                {
+                    "text": "Don’t count the days, make the days count.",
+                    "author": "Muhammad Ali"
+                },
+                {
+                    "text": "Energy and persistence conquer all things.",
+                    "author": "Benjamin Franklin"
+                },
+                {
+                    "text": "Limit your ‘always’ and your ‘nevers’.",
+                    "author": "Amy Poehler"
+                },
+                {
+                    "text": "Turn your wounds into wisdom.",
+                    "author": "Oprah Winfrey"
+                },
+                {
+                    "text": "It does not matter how slowly you go as long as you do not stop.",
+                    "author": "Confucius"
+                },
+                {
+                    "text": "I never dreamed about success. I worked for it.",
+                    "author": "Estee Lauder"
+                },
+                {
+                    "text": "The future depends on what you do today.",
                     "author": "Mahatma Gandhi"
                 },
                 {
-                    "text": "Codziennie jesteś albo krok bliżej, albo krok dalej od celu.",
-                    "author": "autor nieznany"
+                    "text": "Don’t watch the clock; do what it does. Keep going.",
+                    "author": "Sam Levenson"
                 }
             ]
+
 
 }

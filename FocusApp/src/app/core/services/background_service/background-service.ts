@@ -24,7 +24,7 @@ export class BackgroundService {
 
   defaultBackground: Background = {
     name: "Test",
-    path: "assets/backgrounds/static/Cyberpunk_City.png"
+    path: "assets/backgrounds/static/Colors1.png"
   };
 
   private backgroundSource = new BehaviorSubject<Background>(this.defaultBackground);
