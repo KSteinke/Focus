@@ -44,7 +44,7 @@ export class Quote {
     let randomQuote = this.quoteService.getRandomQuote();
     if(randomQuote != null)
     {
-      this.quote = `"${randomQuote.text}" - ${randomQuote.author}`;
+      this.quote = `"${randomQuote.text}"`;
     }
   }
 
