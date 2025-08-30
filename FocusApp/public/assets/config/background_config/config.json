@@ -3,7 +3,19 @@
         "static": [
             {
                 "name": "Colors",
+                "path": "assets/backgrounds/static/Colors.png"
+            },
+            {
+                "name": "Colors",
                 "path": "assets/backgrounds/static/Colors2.png"
+            },
+            {
+                "name": "Colors",
+                "path": "assets/backgrounds/static/Colors3.png"
+            },
+            {
+                "name": "Colors",
+                "path": "assets/backgrounds/static/Colors4.png"
             },
             {
                 "name": "Space",
