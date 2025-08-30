@@ -43,7 +43,7 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 18px;
   height: 18px;
-  background: #DBE5DF; /* ciemniejszy niebieski */
+  background: white; /* ciemniejszy niebieski */
   cursor: pointer;
   border-radius: 50%;
   margin-top: -6px; /* centrowanie na track */
@@ -51,7 +51,7 @@ input[type="range"]::-webkit-slider-thumb {
 
   &:hover {
     transform: scale(1.05); // powiększa o 10%
-    background-color: #556d62;
+    background-color: rgba(145, 71, 255, 1);
   }
 }
 
@@ -66,7 +66,7 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-moz-range-thumb {
   width: 18px;
   height: 18px;
-  background: #DBE5DF;
+  background: white;
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0,0,0,0.7);
@@ -74,6 +74,6 @@ input[type="range"]::-moz-range-thumb {
 
   &:hover {
     transform: scale(1.05); // powiększa o 10%
-    background-color: #556d62;
+    background-color: rgba(145, 71, 255, 1);
   }
 }
