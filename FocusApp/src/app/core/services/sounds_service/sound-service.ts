@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ConfigService } from '../config_service/config-service';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, find, Subject } from 'rxjs';
 import { LocalStorageService } from '../local_storage_service/local-storage-service';
 
 
@@ -14,14 +14,14 @@ export class SoundService {
       return this.sounds;
     }
     private tempGlobalVolume: number = 0.5;
-    private globalVolume: number = 0.5;
+    private globalVolume: number = 0.0;
 
     public set GlobalVolume(value: number)
     {
-      this.globalVolume = value / 100;
-      this.tempGlobalVolume = this.globalVolume;
-      this.sounds.forEach(sound => {
-        sound.Audio.volume = sound.Volume * this.globalVolume;
+        this.globalVolume = value / 100;
+        this.tempGlobalVolume = this.globalVolume;
+        this.sounds.forEach(sound => {
+          sound.Audio.volume = sound.Volume * this.globalVolume;
       });
     }
 
@@ -81,12 +81,16 @@ export class SoundService {
 
     public TogleSound(sound: Sound)
     {
-      this.UnMuteAllSounds();
+      
 
       if(sound.IsPlaying)
       {
         sound.Audio.pause();
         sound.IsPlaying = false;
+        if(!this.IsAnySoundPlaying())
+        {
+          this.MuteAllSounds();
+        }
       }
       else
       {
@@ -96,36 +100,70 @@ export class SoundService {
         {
           this.globalMute.next(false);
         }
+        this.UnMuteAllSounds();
       }
+
     }
 
     public MuteAllSounds()
     {
-      this.globalVolume = 0;
+      this.MuteGlobalVolume();
       this.sounds.forEach(sound => {
         sound.Audio.volume = 0;
       });
+      
+    }
+
+    public MuteGlobalVolume()
+    {
+      this.globalVolume = 0;
       this.globalMute.next(true);
       this.globalVolumeChangedSubject.next(this.globalVolume);
     }
 
+    public IsAnySoundPlaying() : boolean
+    {
+      const playingSound = this.sounds.find(sound => sound.IsPlaying === true);
+      if(playingSound != null)
+      {
+        return true;
+      }
+      
+      return false;
+    }
+
     public UnMuteAllSounds()
     {
-      this.globalVolume = this.tempGlobalVolume;
-      this.sounds.forEach(sound => 
+      if(this.IsAnySoundPlaying())
       {
-        sound.Audio.volume = sound.Volume * this.globalVolume;
+        this.globalVolume = this.tempGlobalVolume;
+        this.sounds.forEach(sound => 
+        {
+          sound.Audio.volume = sound.Volume * this.globalVolume;
+        }
+        );
+        this.globalMute.next(false);
+        this.globalVolumeChangedSubject.next(this.globalVolume);
       }
-      );
-      this.globalMute.next(false);
-      this.globalVolumeChangedSubject.next(this.globalVolume);
+      else
+      {
+        console.log("popu");
+      }
     }
 
     public SetSoundVolume(sound: Sound, volume: number)
     {
-      sound.Audio.volume = this.globalVolume * (volume / 100);
-      sound.Volume = volume / 100;
-      this.localStorageService.setItem(sound.Id, sound);
+      if(this.IsAnySoundPlaying())
+      {
+        sound.Audio.volume = this.globalVolume * (volume / 100);
+        sound.Volume = volume / 100;
+        this.localStorageService.setItem(sound.Id, sound);
+      }
+      else
+      {
+        console.log("set sound popu");
+      }
+      
     }
 
     public ResetSounds()
@@ -138,10 +176,12 @@ export class SoundService {
         sound.Volume = 0.5;
       })
       this.soundsVolumeChangedSubject.next();
+      this.MuteGlobalVolume();
     }
 
     public PlaySounds(sounds: Sound[])
     {
+      console.log(this.globalVolume);
       this.ResetSounds();
       sounds.forEach(sound => {
         const matchSound = this.Sounds.find(originalSounds => originalSounds.Id === sound.Id)
@@ -156,6 +196,8 @@ export class SoundService {
       })
       this.soundsVolumeChangedSubject.next();
       this.globalMute.next(false);
+      this.UnMuteAllSounds();
+      console.log(this.globalVolume);
     }
 
     private ClearLocalStorageSounds()

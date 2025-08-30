@@ -10,49 +10,49 @@ html, body {
 
 
 .sqare-top-button{
-    background-color: #3F5E53;
+    background-color: rgba(59, 130, 246, 0);
     padding-right: 2px;
     padding-left: 2px;
     padding-top: 2px;
     padding-bottom: 2px;
-    border: solid #DBE5DF;
+    border: solid white;
     border-radius: 15px;
     transition: transform 0.15s ease-in-out;
     max-width: 50px;
 
   &:hover {
     transform: scale(1.1); // powiększa o 10%
-    background-color: #556d62;
+    background-color: rgba(145, 71, 255, 0.4);
     cursor: pointer;
   }
 
    &:active {
     transform: scale(0.95); /* lekko wciśnięty */
-    background-color: #2f4b42; /* ciemniejszy odcień */
+    background-color: rgba(145, 71, 255, 0.8); /* ciemniejszy odcień */
   }
 }
 
 .rectangle-top-button{
-    background-color: #3F5E53;
+    background-color: rgba(59, 130, 246, 0);
     padding-right: 2px;
     padding-left: 2px;
     padding-top: 2px;
     padding-bottom: 2px;
-    border: solid #DBE5DF;
+    border: solid white;
     border-radius: 15px;
     transition: transform 0.15s ease-in-out;
     display: inline-flex;
     
 
   &:hover {
-    transform: scale(1.1); // powiększa o 10%
-    background-color: #556d62;
+    transform: scale(1.05); // powiększa o 10%
+    background-color: rgba(145, 71, 255, 0.4);
     cursor: pointer;
   }
 
    &:active {
     transform: scale(0.95); /* lekko wciśnięty */
-    background-color: #2f4b42; /* ciemniejszy odcień */
+    background-color: rgba(145, 71, 255, 0.8); /* ciemniejszy odcień */
   }
   
 }

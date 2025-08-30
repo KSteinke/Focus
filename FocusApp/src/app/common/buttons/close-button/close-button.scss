@@ -1,11 +1,11 @@
 .options-close-button{
   &:hover{
     transform: scale(1.1); // powiększa o 10%
-    color: #556d62;
+    color: rgba(145, 71, 255, 0.6);
   }
 
   &:active {
     transform: scale(0.95); /* lekko wciśnięty */
-    color: #2f4b42; /* ciemniejszy odcień */
+    color: rgba(145, 71, 255, 0.8); /* ciemniejszy odcień */
   }
 }
