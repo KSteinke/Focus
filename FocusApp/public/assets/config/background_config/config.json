@@ -3,7 +3,7 @@
         "static": [
             {
                 "name": "Colors",
-                "path": "assets/backgrounds/static/Colors.png"
+                "path": "assets/backgrounds/static/Colors2.png"
             },
             {
                 "name": "Space",
@@ -27,7 +27,7 @@
             },
             {
                 "name": "Autumn Trees",
-                "path": "assets/backgrounds/static/Tree.png"
+                "path": "assets/backgrounds/static/Tree2.png"
             },
             {
                 "name": "Cyber City",
