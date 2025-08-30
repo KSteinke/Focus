@@ -1,0 +1,6 @@
+.width-limit{
+    max-width: 65%;
+     @media (min-width: 576px) {
+    max-width: 100%;
+    }  
+}

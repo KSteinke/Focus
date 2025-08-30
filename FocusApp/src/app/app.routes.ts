@@ -3,6 +3,9 @@ import { Dashboard } from './features/dashboard/dashboard';
 import { Home } from './features/home/home';
 
 export const routes: Routes = [
-     { path: 'app', component: Dashboard },
-     { path: '', component: Home}
+  { path: '', component: Home, pathMatch: 'full' },
+  { path: 'home', component: Home},
+  { path: 'Home', component: Home},
+  { path: 'app', component: Dashboard },
+  { path: '**', component: Dashboard } // pasuje na wszystko inne
 ];

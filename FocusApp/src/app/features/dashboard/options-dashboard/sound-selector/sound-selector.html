@@ -1,18 +1,22 @@
 <div class="container text-white">
     <div class="row">
         <div class="col text-center pb-2">
-            <h3>Mix your favorite sounds!</h3>
+            <!-- dla xs (poniżej sm) -->
+            <h4 class="d-block d-sm-none">Mix your <br/> favorite sounds!</h4>
+
+            <!-- dla sm i większych -->
+            <h3 class="d-none d-sm-block">Mix your favorite sounds!</h3>
         </div>
     </div>
     <div class="options-selector scrollable px-2">
         <div class="row ">
-            <div class="col-md-6 col-lg-4 col-xl-3 p-3" *ngFor="let sound of Sounds">
+            <div class="col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let sound of Sounds">
                 <app-sound-element [Sound]="sound"></app-sound-element>
             </div>
         </div>
         <div class="row align-items-center">
             <div class="col p-3">
-                <div class=" sounds-selector-button">
+                <div class=" sounds-selector-button width-limit">
                 <app-text-button (clickEvent)="resetSounds()" [TextButtonModel]="ResetSoundTextButtonModel"></app-text-button>
                 </div>
             </div>

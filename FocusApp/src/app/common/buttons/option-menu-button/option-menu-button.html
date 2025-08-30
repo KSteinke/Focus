@@ -1,8 +1,8 @@
-<div class=" col d-flex align-items-center option-menu-button option-menu-button-text p-2 gap-1" (click)="click()" [ngClass]="{'options-menu-button-current-selected': selected}">
+<div class=" col d-flex align-items-center justify-menu-buttons option-menu-button option-menu-button-text p-2 gap-1" (click)="click()" [ngClass]="{'options-menu-button-current-selected': selected}">
     <button class="sqare-inside-button">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24" fill="currentColor">
     <path [attr.d]="IconPath"></path>
     </svg>
     </button>
-    {{Name}}
+    <span class="d-none d-lg-inline">{{Name}}</span>
 </div>

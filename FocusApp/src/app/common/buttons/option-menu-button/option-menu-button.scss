@@ -24,3 +24,14 @@
   background-color: rgba(145, 71, 255, 0.6); /* ciemniejszy odcień */
 
 }
+
+.justify-menu-buttons{
+      text-align: center;
+    justify-content: center;
+
+    @media (min-width: 992px)
+    {
+      text-align: left;
+      justify-content: start;
+    }
+}
