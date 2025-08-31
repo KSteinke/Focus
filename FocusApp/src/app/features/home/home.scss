@@ -19,3 +19,9 @@
     transform: scale(1.1); // powiększa o 10%
   }
 }
+
+#info3-b .card {
+  background: transparent !important; /* zamiast białego */
+  box-shadow: none !important;       /* usuń cień jeśli jest */
+  border: none !important;           /* usuń ramkę jeśli jest */
+}
