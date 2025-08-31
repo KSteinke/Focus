@@ -13,6 +13,9 @@
                 <div class="row d-flex justify-menu-buttons" *ngFor="let button of Buttons">
                     <app-option-menu-button [Name]="button.name" [IconPath]="button.iconPath" (clickEvent)="menuButtonClicked($event)" [selected]="CurrentOptionsCard === button.name"></app-option-menu-button>
                 </div>
+                <div class="row d-flex justify-menu-buttons">
+                    <app-option-menu-button [Name]="HomePageButton.name" [IconPath]="HomePageButton.iconPath" (clickEvent)="homeButtonClicked($event)" [selected]="false"></app-option-menu-button>
+                </div>
             </div>
             <div class="col">
                 <app-background-selector *ngIf="CurrentOptionsCard === 'Backgrounds'"></app-background-selector>
