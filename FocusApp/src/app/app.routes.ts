@@ -7,5 +7,5 @@ export const routes: Routes = [
   { path: 'home', component: Home},
   { path: 'Home', component: Home},
   { path: 'app', component: Dashboard },
-  { path: '**', component: Dashboard } // pasuje na wszystko inne
+  { path: '**', component: Home } // pasuje na wszystko inne
 ];
