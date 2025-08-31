@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
-export class Home {
-
+export class Home  implements AfterViewInit {
+    ngAfterViewInit(): void {
+    // sprawdzamy czy Tally został załadowany
+    if ((window as any).Tally) {
+      (window as any).Tally.loadEmbeds();
+    }
+  }
 }
