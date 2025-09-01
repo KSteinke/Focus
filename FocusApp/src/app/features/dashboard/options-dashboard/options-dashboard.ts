@@ -69,8 +69,8 @@ constructor(private localStorageService: LocalStorageService)
     this.localStorageService.setItem("CurrentOptionsCard", value);
   }
 
-  homeButtonClicked(event: any) {
-  // otwórz w nowej karcie
-  window.open('/', '_blank'); // '/' jeśli chcesz root strony
+homeButtonClicked(event: any) {
+  const baseUrl = window.location.origin + '/Focus';
+  window.open(baseUrl, '_self');
 }
 }
