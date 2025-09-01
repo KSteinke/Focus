@@ -36,3 +36,29 @@
   box-shadow: none !important;       /* usuń cień jeśli jest */
   border: none !important;           /* usuń ramkę jeśli jest */
 }
+
+.navbar-nav .btn:hover {
+  text-decoration: none !important;
+}
+
+.hover-nav-element{
+  &:hover
+  {
+    transform: scale(1.1); // powiększa o 10%
+  }
+}
+
+/* wyłącza linię/animację na tym elemencie menu */
+.navbar-nav .nav-item.no-hover-underline::before,
+.navbar-nav .nav-item.no-hover-underline::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* na wszelki wypadek – żadnych podkreśleń/obramowań na hover */
+.navbar-nav .nav-item.no-hover-underline a:hover,
+.navbar-nav .nav-item.no-hover-underline a:focus {
+  text-decoration: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
