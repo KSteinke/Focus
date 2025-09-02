@@ -70,7 +70,7 @@ constructor(private localStorageService: LocalStorageService)
   }
 
 homeButtonClicked(event: any) {
-  const baseUrl = window.location.origin + '/Focus';
+  const baseUrl = window.location.origin + '/';
   window.open(baseUrl, '_blank');
 }
 }
