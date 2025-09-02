@@ -38,7 +38,7 @@ jobs:
       # 5. Build Angular app
       - name: Build Angular app
         working-directory: FocusApp
-        run: npx ng build --configuration production --base-href "/Focus/"
+        run: npx ng build --configuration production --base-href "/"
 
       # 6. Copy index data to 404 to enables routing
       - name: Copy index.html to 404.html
