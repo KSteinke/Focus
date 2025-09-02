@@ -42,7 +42,7 @@ jobs:
 
       # 6. Copy index data to 404 to enables routing
       - name: Copy index.html to 404.html
-        working-directory: FocusApp/dist/FocusApp/browser
+        working-directory: dist/FocusApp/browser
         run: cp index.html 404.html
 
       # 7. Show build output for debugging
@@ -55,5 +55,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: FocusApp/dist/FocusApp/browser
+          publish_dir: dist/FocusApp/browser
           publish_branch: gh-pages
