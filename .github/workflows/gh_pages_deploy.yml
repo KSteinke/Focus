@@ -57,3 +57,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: FocusApp/dist/FocusApp/browser
           publish_branch: gh-pages
+          cname: pomodora.eu 
